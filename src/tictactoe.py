@@ -14,7 +14,7 @@ class TicTacToe(object):
         self.player = -self.player
 
     def agent_move(self, policy):
-        best_action = policy(self.get_state(), self.get_actions())
+        best_action = policy(self.get_state(), self.player, self.get_actions())
         self.move(best_action)
         return best_action
         

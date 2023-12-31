@@ -5,5 +5,5 @@ import random
 
 class RandomPolicy(BasePolicy):
 
-    def __call__(self, state: list[int], actions: set[int]) -> int:
+    def __call__(self, state: tuple[int], player: int, actions: set[int]) -> int:
         return random.choice(list(actions))
