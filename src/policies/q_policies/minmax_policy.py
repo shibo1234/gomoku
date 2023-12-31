@@ -5,7 +5,7 @@ class MinMaxPolicy(BaseQPolicySingle):
     def __init__(self, game_cls):
         super().__init__()
         self.game_cls = game_cls
-        self.original_player = game_cls.last_player()
+        self.original_player = self.game_cls.last_player()
 
     def min_max(self, game, is_max_player):
         if game.is_terminated():
@@ -27,7 +27,6 @@ class MinMaxPolicy(BaseQPolicySingle):
 
             if (is_max_player and score > best_score) or (not is_max_player and score < best_score):
                 best_score = score
-
         return best_score
 
     def get_all_Qs(self, state: tuple[int], player: int, action_space: set[int]) -> dict[int, float]:
