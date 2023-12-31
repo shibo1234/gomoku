@@ -3,6 +3,14 @@ from copy import deepcopy
 
 
 class TicTacToe(object):
+
+    @classmethod
+    def from_state(cls, state: tuple[int], player: int):
+        obj = TicTacToe()
+        obj.board = np.array(state)
+        obj.player = player
+        return obj
+
     def __init__(self, start_player=1):
         self.board = np.zeros(9)
         self.player = start_player
@@ -25,7 +33,7 @@ class TicTacToe(object):
     def render(self):
         print(self.board.reshape([3, 3]))
 
-    def get_state(self):
+    def get_state(self) -> tuple[int]:
         return tuple(self.board.astype(int).tolist())
 
     def get_actions(self):
@@ -57,3 +65,6 @@ class TicTacToe(object):
     
     def clone(self):
         return deepcopy(self)
+
+    def last_player(self):
+        return -self.player
