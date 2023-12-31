@@ -1,6 +1,7 @@
 from .base_q_policy import BaseQPolicySingle
 
 import pickle as pkl
+import numpy as np
 
 
 class QTablePolicy(BaseQPolicySingle):
@@ -18,6 +19,8 @@ class QTablePolicy(BaseQPolicySingle):
     def get_all_Qs(self, state: tuple[int], action_space: set[int]) -> dict[int, float]:
         return {action: self.q_table[state, action] for action in action_space}
 
-    def update_Q(self, state: tuple[int], action: int, Q: float) -> None:
-        self.q_table[state, action] = (1 - self.lr) * self.get_Q(state, action) + self.lr * Q
+    def update_Q(self, state: tuple[int], action: int, Q: float) -> float:
+        act_q, exp_q = self.get_Q(state, action), Q
+        self.q_table[state, action] = (1 - self.lr) * act_q + self.lr * exp_q
+        return np.abs(act_q - exp_q)
 

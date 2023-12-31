@@ -2,6 +2,7 @@ from ..base_policy import BasePolicy
 
 from abc import abstractmethod
 import itertools as it
+import numpy as np
 
 
 class BaseQPolicy(BasePolicy):
@@ -28,12 +29,12 @@ class BaseQPolicy(BasePolicy):
         return list(it.starmap(self.get_all_Qs, zip(states, action_spaces)))
 
     @abstractmethod
-    def update_Q(self, state: tuple[int], action: int, Q: float) -> None:
-        self.batch_update_Q([state], [action], [Q])
+    def update_Q(self, state: tuple[int], action: int, Q: float) -> float:
+        return self.batch_update_Q([state], [action], [Q])
 
     @abstractmethod
-    def batch_update_Q(self, states: list[tuple[int]], actions: list[int], Qs: list[float]) -> None:
-        list(it.starmap(self.update_Q, zip(states, actions, Qs)))
+    def batch_update_Q(self, states: list[tuple[int]], actions: list[int], Qs: list[float]) -> float:
+        return np.mean(list(it.starmap(self.update_Q, zip(states, actions, Qs))))
 
 
 class BaseQPolicySingle(BaseQPolicy):
@@ -46,11 +47,11 @@ class BaseQPolicySingle(BaseQPolicy):
         return super().batch_get_all_Qs(states, action_spaces)
 
     @abstractmethod
-    def update_Q(self, state: tuple[int], action: int, Q: float) -> None:
+    def update_Q(self, state: tuple[int], action: int, Q: float) -> float:
         raise NotImplementedError
 
-    def batch_update_Q(self, states: list[tuple[int]], actions: list[int], Qs: list[float]) -> None:
-        super().batch_update_Q(states, actions, Qs)
+    def batch_update_Q(self, states: list[tuple[int]], actions: list[int], Qs: list[float]) -> float:
+        return super().batch_update_Q(states, actions, Qs)
 
 
 class BaseQPolicyBatch(BaseQPolicy):
@@ -62,9 +63,9 @@ class BaseQPolicyBatch(BaseQPolicy):
     def batch_get_all_Qs(self, states: list[tuple[int]], action_spaces: list[set[int]]) -> list[dict[int, float]]:
         raise NotImplementedError
 
-    def update_Q(self, state: tuple[int], action: int, Q: float) -> None:
-        super().update_Q(state, action, Q)
+    def update_Q(self, state: tuple[int], action: int, Q: float) -> float:
+        return super().update_Q(state, action, Q)
 
     @abstractmethod
-    def batch_update_Q(self, states: list[tuple[int]], actions: list[int], Qs: list[float]) -> None:
+    def batch_update_Q(self, states: list[tuple[int]], actions: list[int], Qs: list[float]) -> float:
         raise NotImplementedError
