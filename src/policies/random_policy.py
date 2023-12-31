@@ -1,7 +1,9 @@
+from .base_policy import BasePolicy
+
 import random
 
 
-class RandomPolicy:
+class RandomPolicy(BasePolicy):
     def __init__(self):
         pass
 

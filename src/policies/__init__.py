@@ -1,4 +1,3 @@
-from .mlp_policy import MLPPolicy
-from .q_table_policy import QTablePolicy
+from .q_policies import *
 from .random_policy import RandomPolicy
 from .mcts_policy import MCTS

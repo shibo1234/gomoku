@@ -1,6 +1,6 @@
-import random
 import numpy as np
 from copy import deepcopy
+
 
 class TicTacToe(object):
     def __init__(self, start_player=1):
