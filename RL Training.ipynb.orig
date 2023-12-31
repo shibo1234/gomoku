@@ -1,0 +1,1819 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:40.864566Z",
+     "start_time": "2023-12-31T10:42:40.724051Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The autoreload extension is already loaded. To reload it, use:\n",
+      "  %reload_ext autoreload\n"
+     ]
+    }
+   ],
+   "source": [
+    "%load_ext autoreload\n",
+    "%autoreload 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:41.122521Z",
+     "start_time": "2023-12-31T10:42:41.076966Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "from src import *"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:41.541550Z",
+     "start_time": "2023-12-31T10:42:41.522043Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "import random\n",
+    "import pandas as pd\n",
+    "import torch\n",
+    "from torch import nn\n",
+    "from collections import defaultdict\n",
+    "from tqdm.auto import tqdm, trange\n",
+    "import pickle as pkl\n",
+    "from typing import Literal, get_type_hints\n",
+    "\n",
+    "import itertools as it\n",
+    "import more_itertools as mit"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:41.957089Z",
+     "start_time": "2023-12-31T10:42:41.934627Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[0. 0. 0.]\n",
+      " [0. 0. 0.]\n",
+      " [0. 0. 0.]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "ttt = TicTacToe()\n",
+    "ttt.render()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:42.480306Z",
+     "start_time": "2023-12-31T10:42:42.398602Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "q_table_policy = QTablePolicy.load('q_table', lr=0.1)\n",
+    "min_max_policy = MinMaxPolicy(game_cls=TicTacToe)\n",
+    "# q_table_policy = QTablePolicy(lr=0.1)\n",
+    "# mlp_policy = MLPPolicy(Model(), lr=0.001)\n",
+    "# mcts_policy = MCTS(ttt)\n",
+    "# mlp_policy = MLPPolicy.load(Model(), 'mlp.pt', lr=0.001)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T11:01:46.223678Z",
+     "start_time": "2023-12-31T11:01:46.125865Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "def player_formatter(player: int):\n",
+    "    symbol_mapping = {0: \" \", 1: \"X\", -1: \"O\"}\n",
+    "    return symbol_mapping[player]\n",
+    "    \n",
+    "    \n",
+    "def state_formatter(state: tuple[int, ...]):\n",
+    "    size = int(len(state) ** 0.5)\n",
+    "    formatted_state = \"\\n\"\n",
+    "    for i in range(size):\n",
+    "        formatted_state += \"+---+---+---+\\n\"\n",
+    "        row = state[i*size:(i+1)*size]\n",
+    "        formatted_state += \"| \" + \" | \".join(player_formatter(cell)for cell in row) + \" |\\n\"\n",
+    "    formatted_state += \"+---+---+---+\"\n",
+    "    return formatted_state"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:42.895946Z2023-12-31T09:50:39.216270Z",
+     "start_time": "2023-12-31T09:50:39.189292Z"
+    },
+    "collapsed": false,
+    "nbdime-conflicts": {
+     "local_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "7"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "8.6"
+            },
+            {
+             "key": 19,
+             "op": "addrange",
+             "valuelist": "9"
+            },
+            {
+             "key": 19,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 22,
+             "op": "addrange",
+             "valuelist": "49"
+            },
+            {
+             "key": 22,
+             "length": 4,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "key": 0,
+           "op": "addrange",
+           "valuelist": [
+            "2023-12-31T10:57:38.671049Z"
+           ]
+          },
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ],
+     "remote_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "key": 0,
+           "op": "addrange",
+           "valuelist": [
+            "2023-12-31T10:42:42.877172Z"
+           ]
+          },
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ]
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def play(ttt, policy=None, print_state=False):\n",
+    "    if policy is None:\n",
+    "        policy = RandomPolicy()\n",
+    "    if not isinstance(policy, dict):\n",
+    "        policy = {-1: policy, 1: policy}\n",
+    "\n",
+    "    tape = [dict(\n",
+    "        player=None,\n",
+    "        action_space=None,\n",
+    "        action=None,\n",
+    "        state=ttt.get_state(),\n",
+    "        winner=0\n",
+    "    )]\n",
+    "\n",
+    "    while (action_space := ttt.get_actions()) and not ttt.get_winner():\n",
+    "        if print_state:\n",
+    "            print(state_formatter(ttt.get_state()), flush=True)\n",
+    "        player = ttt.player\n",
+    "        action = ttt.agent_move(policy[player])\n",
+    "        state = ttt.get_state()\n",
+    "        winner = ttt.get_winner()\n",
+    "        tape.append(dict(\n",
+    "            player=player,\n",
+    "            action_space=action_space,\n",
+    "            action=action,\n",
+    "            state=state,\n",
+    "            winner=winner\n",
+    "        ))\n",
+    "    if print_state:\n",
+    "        print(state_formatter(ttt.get_state()), flush=True)\n",
+    "\n",
+    "    tape.append(dict(\n",
+    "        player=None,\n",
+    "        action_space=set(),\n",
+    "        action=None,\n",
+    "        state=ttt.get_state(),\n",
+    "        winner=ttt.get_winner()\n",
+    "    ))\n",
+    "    \n",
+    "    return tape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:43.524729Z2023-12-31T09:50:42.138367Z",
+     "start_time": "2023-12-31T09:50:42.117323Z"
+    },
+    "collapsed": false,
+    "nbdime-conflicts": {
+     "local_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "7"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "0"
+            },
+            {
+             "key": 18,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 21,
+             "op": "addrange",
+             "valuelist": "15"
+            },
+            {
+             "key": 21,
+             "length": 3,
+             "op": "removerange"
+            },
+            {
+             "key": 25,
+             "op": "addrange",
+             "valuelist": "96"
+            },
+            {
+             "key": 25,
+             "length": 1,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "key": 0,
+           "op": "addrange",
+           "valuelist": [
+            "2023-12-31T10:57:40.091417Z"
+           ]
+          },
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ],
+     "remote_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "key": 0,
+           "op": "addrange",
+           "valuelist": [
+            "2023-12-31T10:42:43.489942Z"
+           ]
+          },
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ]
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def swap(state: np.ndarray, option: Literal[1, -1]):\n",
+    "    return option * state\n",
+    "\n",
+    "def flip(state: np.ndarray, option: Literal[True, False]):\n",
+    "    return np.fliplr(state) if option else state\n",
+    "\n",
+    "def rotate(state: np.ndarray, option: Literal[0, 1, 2, 3]):\n",
+    "    return np.rot90(state, k=option)\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T09:50:42.721549Z",
+     "start_time": "2023-12-31T09:50:42.697405Z"
+    },
+    "collapsed": false,
+    "nbdime-conflicts": {
+     "local_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "7"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "0"
+            },
+            {
+             "key": 18,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 20,
+             "op": "addrange",
+             "valuelist": "3338"
+            },
+            {
+             "key": 20,
+             "length": 5,
+             "op": "removerange"
+            },
+            {
+             "key": 26,
+             "op": "addrange",
+             "valuelist": "8"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "7"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "0"
+            },
+            {
+             "key": 18,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 20,
+             "op": "addrange",
+             "valuelist": "31399"
+            },
+            {
+             "key": 21,
+             "length": 5,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ],
+     "remote_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 11,
+             "length": 4,
+             "op": "removerange"
+            },
+            {
+             "key": 19,
+             "op": "addrange",
+             "valuelist": ":45"
+            },
+            {
+             "key": 21,
+             "op": "addrange",
+             "valuelist": "0996"
+            },
+            {
+             "key": 21,
+             "length": 3,
+             "op": "removerange"
+            },
+            {
+             "key": 25,
+             "length": 1,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 11,
+             "length": 4,
+             "op": "removerange"
+            },
+            {
+             "key": 19,
+             "op": "addrange",
+             "valuelist": ":45"
+            },
+            {
+             "key": 22,
+             "op": "addrange",
+             "valuelist": "14"
+            },
+            {
+             "key": 23,
+             "op": "addrange",
+             "valuelist": "9"
+            },
+            {
+             "key": 23,
+             "length": 3,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ]
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def get_param_options(fn, param='option'):\n",
+    "    return get_type_hints(fn)['option'].__args__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:46.272225Z2023-12-31T09:50:42.969780Z",
+     "start_time": "2023-12-31T10:42:46.251755Z2023-12-31T09:50:42.949047Z"
+    },
+    "collapsed": false,
+    "nbdime-conflicts": {
+     "local_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "7"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "0"
+            },
+            {
+             "key": 18,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 20,
+             "op": "addrange",
+             "valuelist": "61111"
+            },
+            {
+             "key": 21,
+             "length": 5,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "7"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "0.59"
+            },
+            {
+             "key": 19,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 23,
+             "op": "addrange",
+             "valuelist": "3"
+            },
+            {
+             "key": 23,
+             "length": 3,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ],
+     "remote_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ]
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def transform_state(raw_state, fns, opts):\n",
+    "    state = raw_state.reshape([3, 3])\n",
+    "    for fn, opt in zip(fns, opts):\n",
+    "        state = fn(state, opt)\n",
+    "    return state.flatten()\n",
+    "\n",
+    "def transform_actions(raw_actions, fns, opts):\n",
+    "    actions = np.zeros(9)\n",
+    "    actions[raw_actions] = 1\n",
+    "    actions = transform_state(actions, fns, opts)\n",
+    "    return np.nonzero(actions)[0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:42:48.068840Z2023-12-31T09:50:43.267107Z",
+     "start_time": "2023-12-31T10:42:48.035834Z2023-12-31T09:50:43.246384Z"
+    },
+    "collapsed": false,
+    "nbdime-conflicts": {
+     "local_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "7"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 18,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 21,
+             "op": "addrange",
+             "valuelist": "28"
+            },
+            {
+             "key": 21,
+             "length": 3,
+             "op": "removerange"
+            },
+            {
+             "key": 25,
+             "op": "addrange",
+             "valuelist": "44"
+            },
+            {
+             "key": 25,
+             "length": 1,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 11,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "7"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 18,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 21,
+             "op": "addrange",
+             "valuelist": "01759"
+            },
+            {
+             "key": 21,
+             "length": 5,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ],
+     "remote_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ]
+    }
+   },
+   "outputs": [],
+   "source": [
+    "def bellman_equation(policy, reward, state, player, actions):\n",
+    "    if not actions:\n",
+    "        return reward\n",
+    "    return reward + max(policy.get_Q(state, player, action) for action in actions)\n",
+    "\n",
+    "def replay_episode(tape, policy):\n",
+    "    state_list, player_list, action_list, q_list = [], [], [], []\n",
+    "    transformations = [swap, flip, rotate]\n",
+    "\n",
+    "    for pre, cur, nxt in mit.windowed(tape, 3):\n",
+    "        raw_start_state = np.array(list(pre['state'])).astype(int)\n",
+    "        raw_end_state = np.array(list(nxt['state'])).astype(int)\n",
+    "        raw_action = np.array([cur['action']]).astype(int)\n",
+    "        raw_action_space = np.array(list(nxt['action_space'])).astype(int)\n",
+    "        player = cur['player']\n",
+    "        reward = cur['player'] * nxt['winner']\n",
+    "        \n",
+    "        for opts in it.product(*map(get_param_options, transformations)):\n",
+    "            start_state = tuple(transform_state(raw_start_state, transformations, opts).tolist())\n",
+    "            end_state = tuple(transform_state(raw_end_state, transformations, opts).tolist())\n",
+    "            action = transform_actions(raw_action, transformations, opts).item()\n",
+    "            action_space = set(transform_actions(raw_action_space, transformations, opts).tolist())\n",
+    "\n",
+    "            new_q = bellman_equation(policy, reward, end_state, player, action_space)\n",
+    "            state_list.append(start_state)\n",
+    "            player_list.append(player)\n",
+    "            action_list.append(action)\n",
+    "            q_list.append(new_q)\n",
+    "\n",
+    "    return state_list, player_list, action_list, q_list"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 98,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:57:41.799996Z",
+     "start_time": "2023-12-31T10:57:41.776181Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "def train(policy, episodes, epsilon=0.1):\n",
+    "    eps_greedy_policy = EpsilonGreedyPolicy(policy, epsilon=epsilon)\n",
+    "    for episode in trange(episodes):\n",
+    "        ttt.reset(start_player=random.choice([1, -1]))\n",
+    "        tape = play(ttt, policy=eps_greedy_policy)\n",
+    "        state_list, player_list, action_list, q_list = replay_episode(tape, policy)\n",
+    "        loss = policy.batch_update_Q(state_list, player_list, action_list, q_list)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:19:26.971970Z",
+     "start_time": "2023-12-31T10:13:55.974850Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "89462758e5de417194df0f8ccc1145d6",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/50000 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "train(q_table_policy, episodes=50000)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T11:01:58.721593Z",
+     "start_time": "2023-12-31T11:01:49.639931Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| X |   |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| X |   |   |\n",
+      "+---+---+---+\n",
+      "|   | O |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n"
+     ]
+    },
+    {
+     "ename": "Exception",
+     "evalue": "Invalid move",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mException\u001b[0m                                 Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[103], line 2\u001b[0m\n\u001b[1;32m      1\u001b[0m ttt\u001b[38;5;241m.\u001b[39mreset()\n\u001b[0;32m----> 2\u001b[0m tape \u001b[38;5;241m=\u001b[39m \u001b[43mplay\u001b[49m\u001b[43m(\u001b[49m\u001b[43mttt\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mpolicy\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43m{\u001b[49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43mPromptPolicy\u001b[49m\u001b[43m(\u001b[49m\u001b[43mplayer_formatter\u001b[49m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m-\u001b[39;49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43mq_table_policy\u001b[49m\u001b[43m}\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mprint_state\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43;01mTrue\u001b[39;49;00m\u001b[43m)\u001b[49m\n",
+      "Cell \u001b[0;32mIn[93], line 19\u001b[0m, in \u001b[0;36mplay\u001b[0;34m(ttt, policy, print_state)\u001b[0m\n\u001b[1;32m     17\u001b[0m     \u001b[38;5;28mprint\u001b[39m(state_formatter(ttt\u001b[38;5;241m.\u001b[39mget_state()), flush\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mTrue\u001b[39;00m)\n\u001b[1;32m     18\u001b[0m player \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mplayer\n\u001b[0;32m---> 19\u001b[0m action \u001b[38;5;241m=\u001b[39m \u001b[43mttt\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43magent_move\u001b[49m\u001b[43m(\u001b[49m\u001b[43mpolicy\u001b[49m\u001b[43m[\u001b[49m\u001b[43mplayer\u001b[49m\u001b[43m]\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     20\u001b[0m state \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_state()\n\u001b[1;32m     21\u001b[0m winner \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_winner()\n",
+      "File \u001b[0;32m~/Workspaces/gomoku/src/tictactoe.py:26\u001b[0m, in \u001b[0;36mTicTacToe.agent_move\u001b[0;34m(self, policy)\u001b[0m\n\u001b[1;32m     24\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21magent_move\u001b[39m(\u001b[38;5;28mself\u001b[39m, policy):\n\u001b[1;32m     25\u001b[0m     best_action \u001b[38;5;241m=\u001b[39m policy(\u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mget_state(), \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mplayer, \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mget_actions())\n\u001b[0;32m---> 26\u001b[0m     \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mmove\u001b[49m\u001b[43m(\u001b[49m\u001b[43mbest_action\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     27\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m best_action\n",
+      "File \u001b[0;32m~/Workspaces/gomoku/src/tictactoe.py:20\u001b[0m, in \u001b[0;36mTicTacToe.move\u001b[0;34m(self, action)\u001b[0m\n\u001b[1;32m     18\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mmove\u001b[39m(\u001b[38;5;28mself\u001b[39m, action):\n\u001b[1;32m     19\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mboard[action] \u001b[38;5;241m!=\u001b[39m \u001b[38;5;241m0\u001b[39m:\n\u001b[0;32m---> 20\u001b[0m         \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mException\u001b[39;00m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mInvalid move\u001b[39m\u001b[38;5;124m\"\u001b[39m)\n\u001b[1;32m     21\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mboard[action] \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mplayer\n\u001b[1;32m     22\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mplayer \u001b[38;5;241m=\u001b[39m \u001b[38;5;241m-\u001b[39m\u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mplayer\n",
+      "\u001b[0;31mException\u001b[0m: Invalid move"
+     ]
+    }
+   ],
+   "source": [
+    "ttt.reset()\n",
+    "tape = play(ttt, policy={1: PromptPolicy(player_formatter), -1: q_table_policy}, print_state=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-30T14:59:35.099304Z",
+     "start_time": "2023-12-30T14:59:35.065683Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>player</th>\n",
+       "      <th>action_space</th>\n",
+       "      <th>action</th>\n",
+       "      <th>state</th>\n",
+       "      <th>winner</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>NaN</td>\n",
+       "      <td>None</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>(0, 0, 0, 0, 0, 0, 0, 0, 0)</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1.0</td>\n",
+       "      <td>{0, 1, 2, 3, 4, 5, 6, 7, 8}</td>\n",
+       "      <td>2.0</td>\n",
+       "      <td>(0, 0, 1, 0, 0, 0, 0, 0, 0)</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>-1.0</td>\n",
+       "      <td>{0, 1, 3, 4, 5, 6, 7, 8}</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>(-1, 0, 1, 0, 0, 0, 0, 0, 0)</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>1.0</td>\n",
+       "      <td>{1, 3, 4, 5, 6, 7, 8}</td>\n",
+       "      <td>3.0</td>\n",
+       "      <td>(-1, 0, 1, 1, 0, 0, 0, 0, 0)</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>-1.0</td>\n",
+       "      <td>{1, 4, 5, 6, 7, 8}</td>\n",
+       "      <td>8.0</td>\n",
+       "      <td>(-1, 0, 1, 1, 0, 0, 0, 0, -1)</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>1.0</td>\n",
+       "      <td>{1, 4, 5, 6, 7}</td>\n",
+       "      <td>4.0</td>\n",
+       "      <td>(-1, 0, 1, 1, 1, 0, 0, 0, -1)</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>-1.0</td>\n",
+       "      <td>{1, 5, 6, 7}</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>(-1, -1, 1, 1, 1, 0, 0, 0, -1)</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>1.0</td>\n",
+       "      <td>{5, 6, 7}</td>\n",
+       "      <td>6.0</td>\n",
+       "      <td>(-1, -1, 1, 1, 1, 0, 1, 0, -1)</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>NaN</td>\n",
+       "      <td>{}</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>(-1, -1, 1, 1, 1, 0, 1, 0, -1)</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   player                 action_space  action  \\\n",
+       "0     NaN                         None     NaN   \n",
+       "1     1.0  {0, 1, 2, 3, 4, 5, 6, 7, 8}     2.0   \n",
+       "2    -1.0     {0, 1, 3, 4, 5, 6, 7, 8}     0.0   \n",
+       "3     1.0        {1, 3, 4, 5, 6, 7, 8}     3.0   \n",
+       "4    -1.0           {1, 4, 5, 6, 7, 8}     8.0   \n",
+       "5     1.0              {1, 4, 5, 6, 7}     4.0   \n",
+       "6    -1.0                 {1, 5, 6, 7}     1.0   \n",
+       "7     1.0                    {5, 6, 7}     6.0   \n",
+       "8     NaN                           {}     NaN   \n",
+       "\n",
+       "                            state  winner  \n",
+       "0     (0, 0, 0, 0, 0, 0, 0, 0, 0)       0  \n",
+       "1     (0, 0, 1, 0, 0, 0, 0, 0, 0)       0  \n",
+       "2    (-1, 0, 1, 0, 0, 0, 0, 0, 0)       0  \n",
+       "3    (-1, 0, 1, 1, 0, 0, 0, 0, 0)       0  \n",
+       "4   (-1, 0, 1, 1, 0, 0, 0, 0, -1)       0  \n",
+       "5   (-1, 0, 1, 1, 1, 0, 0, 0, -1)       0  \n",
+       "6  (-1, -1, 1, 1, 1, 0, 0, 0, -1)       0  \n",
+       "7  (-1, -1, 1, 1, 1, 0, 1, 0, -1)       1  \n",
+       "8  (-1, -1, 1, 1, 1, 0, 1, 0, -1)       1  "
+      ]
+     },
+     "execution_count": 82,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pd.DataFrame(tape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:20:53.254074Z",
+     "start_time": "2023-12-31T10:20:53.124628Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "q_table_policy.save('q_table')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T11:12:08.035188Z2023-12-31T10:10:43.230567Z",
+     "start_time": "2023-12-31T10:10:42.762727Z"
+    },
+    "collapsed": false,
+    "nbdime-conflicts": {
+     "local_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "9"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "8"
+            },
+            {
+             "key": 18,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 20,
+             "op": "addrange",
+             "valuelist": "77"
+            },
+            {
+             "key": 20,
+             "length": 3,
+             "op": "removerange"
+            },
+            {
+             "key": 24,
+             "op": "addrange",
+             "valuelist": "998"
+            },
+            {
+             "key": 24,
+             "length": 2,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 15,
+             "op": "addrange",
+             "valuelist": "9"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "8"
+            },
+            {
+             "key": 18,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 20,
+             "op": "addrange",
+             "valuelist": "183919"
+            },
+            {
+             "key": 20,
+             "length": 6,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ],
+     "remote_diff": [
+      {
+       "diff": [
+        {
+         "diff": [
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
+          }
+         ],
+         "key": "end_time",
+         "op": "patch"
+        },
+        {
+         "diff": [
+          {
+           "diff": [
+            {
+             "key": 14,
+             "op": "addrange",
+             "valuelist": "43:"
+            },
+            {
+             "key": 14,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 16,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 20,
+             "op": "addrange",
+             "valuelist": "15"
+            },
+            {
+             "key": 20,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 22,
+             "op": "addrange",
+             "valuelist": "394"
+            },
+            {
+             "key": 22,
+             "length": 4,
+             "op": "removerange"
+            }
+           ],
+           "key": 0,
+           "op": "patch"
+          }
+         ],
+         "key": "start_time",
+         "op": "patch"
+        }
+       ],
+       "key": "ExecuteTime",
+       "op": "patch"
+      }
+     ]
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "<<<<<<< local\n"
+     ]
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "63569c5c931643ccace4ec44dfc6b89f",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/1000 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "=======\n"
+     ]
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "868763e3ae34452aa5191b3a216888ee",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/1000 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "ename": "KeyboardInterrupt",
+     "evalue": "",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[44], line 4\u001b[0m\n\u001b[1;32m      2\u001b[0m \u001b[38;5;28;01mfor\u001b[39;00m episode \u001b[38;5;129;01min\u001b[39;00m trange(\u001b[38;5;241m1000\u001b[39m):\n\u001b[1;32m      3\u001b[0m     ttt\u001b[38;5;241m.\u001b[39mreset(start_player\u001b[38;5;241m=\u001b[39m\u001b[38;5;241m1\u001b[39m)\n\u001b[0;32m----> 4\u001b[0m     tape \u001b[38;5;241m=\u001b[39m \u001b[43mplay\u001b[49m\u001b[43m(\u001b[49m\u001b[43mttt\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mpolicy\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43m{\u001b[49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43mRandomPolicy\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m-\u001b[39;49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43mmin_max_policy\u001b[49m\u001b[43m}\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m      5\u001b[0m     win_count[ttt\u001b[38;5;241m.\u001b[39mget_winner()] \u001b[38;5;241m+\u001b[39m\u001b[38;5;241m=\u001b[39m \u001b[38;5;241m1\u001b[39m\n\u001b[1;32m      6\u001b[0m win_count\n",
+      "Cell \u001b[0;32mIn[39], line 17\u001b[0m, in \u001b[0;36mplay\u001b[0;34m(ttt, policy)\u001b[0m\n\u001b[1;32m     15\u001b[0m \u001b[38;5;28;01mwhile\u001b[39;00m (action_space \u001b[38;5;241m:=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_actions()) \u001b[38;5;129;01mand\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m ttt\u001b[38;5;241m.\u001b[39mget_winner():\n\u001b[1;32m     16\u001b[0m     player \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mplayer\n\u001b[0;32m---> 17\u001b[0m     action \u001b[38;5;241m=\u001b[39m \u001b[43mttt\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43magent_move\u001b[49m\u001b[43m(\u001b[49m\u001b[43mpolicy\u001b[49m\u001b[43m[\u001b[49m\u001b[43mplayer\u001b[49m\u001b[43m]\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     18\u001b[0m     state \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_state()\n\u001b[1;32m     19\u001b[0m     winner \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_winner()\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/tictactoe.py:25\u001b[0m, in \u001b[0;36mTicTacToe.agent_move\u001b[0;34m(self, policy)\u001b[0m\n\u001b[1;32m     24\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21magent_move\u001b[39m(\u001b[38;5;28mself\u001b[39m, policy):\n\u001b[0;32m---> 25\u001b[0m     best_action \u001b[38;5;241m=\u001b[39m \u001b[43mpolicy\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_state\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mplayer\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_actions\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     26\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mmove(best_action)\n\u001b[1;32m     27\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m best_action\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/policies/q_policies/base_q_policy.py:11\u001b[0m, in \u001b[0;36mBaseQPolicy.__call__\u001b[0;34m(self, state, player, action_space)\u001b[0m\n\u001b[1;32m     10\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21m__call__\u001b[39m(\u001b[38;5;28mself\u001b[39m, state: \u001b[38;5;28mtuple\u001b[39m[\u001b[38;5;28mint\u001b[39m], player: \u001b[38;5;28mint\u001b[39m, action_space: \u001b[38;5;28mset\u001b[39m[\u001b[38;5;28mint\u001b[39m]) \u001b[38;5;241m-\u001b[39m\u001b[38;5;241m>\u001b[39m \u001b[38;5;28mint\u001b[39m:\n\u001b[0;32m---> 11\u001b[0m     q_dict \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_all_Qs\u001b[49m\u001b[43m(\u001b[49m\u001b[43mstate\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mplayer\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43maction_space\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     12\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28mmax\u001b[39m(q_dict, key\u001b[38;5;241m=\u001b[39mq_dict\u001b[38;5;241m.\u001b[39m\u001b[38;5;21m__getitem__\u001b[39m)\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/policies/q_policies/minmax_policy.py:36\u001b[0m, in \u001b[0;36mMinMaxPolicy.get_all_Qs\u001b[0;34m(self, state, player, action_space)\u001b[0m\n\u001b[1;32m     34\u001b[0m     new_game \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mgame_cls\u001b[38;5;241m.\u001b[39mfrom_state(state, player)\n\u001b[1;32m     35\u001b[0m     new_game\u001b[38;5;241m.\u001b[39mmove(action)\n\u001b[0;32m---> 36\u001b[0m     score \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mmin_max\u001b[49m\u001b[43m(\u001b[49m\u001b[43mnew_game\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mnew_game\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mlast_player\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m!=\u001b[39;49m\u001b[43m \u001b[49m\u001b[43mplayer\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     37\u001b[0m     q_values[action] \u001b[38;5;241m=\u001b[39m score\n\u001b[1;32m     38\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m q_values\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/policies/q_policies/minmax_policy.py:25\u001b[0m, in \u001b[0;36mMinMaxPolicy.min_max\u001b[0;34m(self, game, is_max_player)\u001b[0m\n\u001b[1;32m     22\u001b[0m new_game \u001b[38;5;241m=\u001b[39m game\u001b[38;5;241m.\u001b[39mclone()\n\u001b[1;32m     23\u001b[0m new_game\u001b[38;5;241m.\u001b[39mmove(action)\n\u001b[0;32m---> 25\u001b[0m score \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mmin_max\u001b[49m\u001b[43m(\u001b[49m\u001b[43mnew_game\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;129;43;01mnot\u001b[39;49;00m\u001b[43m \u001b[49m\u001b[43mis_max_player\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     27\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m (is_max_player \u001b[38;5;129;01mand\u001b[39;00m score \u001b[38;5;241m>\u001b[39m best_score) \u001b[38;5;129;01mor\u001b[39;00m (\u001b[38;5;129;01mnot\u001b[39;00m is_max_player \u001b[38;5;129;01mand\u001b[39;00m score \u001b[38;5;241m<\u001b[39m best_score):\n\u001b[1;32m     28\u001b[0m     best_score \u001b[38;5;241m=\u001b[39m score\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/policies/q_policies/minmax_policy.py:25\u001b[0m, in \u001b[0;36mMinMaxPolicy.min_max\u001b[0;34m(self, game, is_max_player)\u001b[0m\n\u001b[1;32m     22\u001b[0m new_game \u001b[38;5;241m=\u001b[39m game\u001b[38;5;241m.\u001b[39mclone()\n\u001b[1;32m     23\u001b[0m new_game\u001b[38;5;241m.\u001b[39mmove(action)\n\u001b[0;32m---> 25\u001b[0m score \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mmin_max\u001b[49m\u001b[43m(\u001b[49m\u001b[43mnew_game\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;129;43;01mnot\u001b[39;49;00m\u001b[43m \u001b[49m\u001b[43mis_max_player\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     27\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m (is_max_player \u001b[38;5;129;01mand\u001b[39;00m score \u001b[38;5;241m>\u001b[39m best_score) \u001b[38;5;129;01mor\u001b[39;00m (\u001b[38;5;129;01mnot\u001b[39;00m is_max_player \u001b[38;5;129;01mand\u001b[39;00m score \u001b[38;5;241m<\u001b[39m best_score):\n\u001b[1;32m     28\u001b[0m     best_score \u001b[38;5;241m=\u001b[39m score\n",
+      "    \u001b[0;31m[... skipping similar frames: MinMaxPolicy.min_max at line 25 (2 times)]\u001b[0m\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/policies/q_policies/minmax_policy.py:25\u001b[0m, in \u001b[0;36mMinMaxPolicy.min_max\u001b[0;34m(self, game, is_max_player)\u001b[0m\n\u001b[1;32m     22\u001b[0m new_game \u001b[38;5;241m=\u001b[39m game\u001b[38;5;241m.\u001b[39mclone()\n\u001b[1;32m     23\u001b[0m new_game\u001b[38;5;241m.\u001b[39mmove(action)\n\u001b[0;32m---> 25\u001b[0m score \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mmin_max\u001b[49m\u001b[43m(\u001b[49m\u001b[43mnew_game\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;129;43;01mnot\u001b[39;49;00m\u001b[43m \u001b[49m\u001b[43mis_max_player\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     27\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m (is_max_player \u001b[38;5;129;01mand\u001b[39;00m score \u001b[38;5;241m>\u001b[39m best_score) \u001b[38;5;129;01mor\u001b[39;00m (\u001b[38;5;129;01mnot\u001b[39;00m is_max_player \u001b[38;5;129;01mand\u001b[39;00m score \u001b[38;5;241m<\u001b[39m best_score):\n\u001b[1;32m     28\u001b[0m     best_score \u001b[38;5;241m=\u001b[39m score\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/policies/q_policies/minmax_policy.py:22\u001b[0m, in \u001b[0;36mMinMaxPolicy.min_max\u001b[0;34m(self, game, is_max_player)\u001b[0m\n\u001b[1;32m     19\u001b[0m best_score \u001b[38;5;241m=\u001b[39m \u001b[38;5;241m-\u001b[39m\u001b[38;5;28mfloat\u001b[39m(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124minf\u001b[39m\u001b[38;5;124m'\u001b[39m) \u001b[38;5;28;01mif\u001b[39;00m is_max_player \u001b[38;5;28;01melse\u001b[39;00m \u001b[38;5;28mfloat\u001b[39m(\u001b[38;5;124m'\u001b[39m\u001b[38;5;124minf\u001b[39m\u001b[38;5;124m'\u001b[39m)\n\u001b[1;32m     21\u001b[0m \u001b[38;5;28;01mfor\u001b[39;00m action \u001b[38;5;129;01min\u001b[39;00m game\u001b[38;5;241m.\u001b[39mget_actions():\n\u001b[0;32m---> 22\u001b[0m     new_game \u001b[38;5;241m=\u001b[39m \u001b[43mgame\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mclone\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     23\u001b[0m     new_game\u001b[38;5;241m.\u001b[39mmove(action)\n\u001b[1;32m     25\u001b[0m     score \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mmin_max(new_game, \u001b[38;5;129;01mnot\u001b[39;00m is_max_player)\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/tictactoe.py:67\u001b[0m, in \u001b[0;36mTicTacToe.clone\u001b[0;34m(self)\u001b[0m\n\u001b[1;32m     66\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21mclone\u001b[39m(\u001b[38;5;28mself\u001b[39m):\n\u001b[0;32m---> 67\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[43mdeepcopy\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m/opt/homebrew/Caskroom/mambaforge/base/lib/python3.10/copy.py:172\u001b[0m, in \u001b[0;36mdeepcopy\u001b[0;34m(x, memo, _nil)\u001b[0m\n\u001b[1;32m    170\u001b[0m                 y \u001b[38;5;241m=\u001b[39m x\n\u001b[1;32m    171\u001b[0m             \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[0;32m--> 172\u001b[0m                 y \u001b[38;5;241m=\u001b[39m \u001b[43m_reconstruct\u001b[49m\u001b[43m(\u001b[49m\u001b[43mx\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mmemo\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[43mrv\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    174\u001b[0m \u001b[38;5;66;03m# If is its own copy, don't memoize.\u001b[39;00m\n\u001b[1;32m    175\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m y \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m x:\n",
+      "File \u001b[0;32m/opt/homebrew/Caskroom/mambaforge/base/lib/python3.10/copy.py:271\u001b[0m, in \u001b[0;36m_reconstruct\u001b[0;34m(x, memo, func, args, state, listiter, dictiter, deepcopy)\u001b[0m\n\u001b[1;32m    269\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m state \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[1;32m    270\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m deep:\n\u001b[0;32m--> 271\u001b[0m         state \u001b[38;5;241m=\u001b[39m \u001b[43mdeepcopy\u001b[49m\u001b[43m(\u001b[49m\u001b[43mstate\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mmemo\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    272\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mhasattr\u001b[39m(y, \u001b[38;5;124m'\u001b[39m\u001b[38;5;124m__setstate__\u001b[39m\u001b[38;5;124m'\u001b[39m):\n\u001b[1;32m    273\u001b[0m         y\u001b[38;5;241m.\u001b[39m__setstate__(state)\n",
+      "File \u001b[0;32m/opt/homebrew/Caskroom/mambaforge/base/lib/python3.10/copy.py:146\u001b[0m, in \u001b[0;36mdeepcopy\u001b[0;34m(x, memo, _nil)\u001b[0m\n\u001b[1;32m    144\u001b[0m copier \u001b[38;5;241m=\u001b[39m _deepcopy_dispatch\u001b[38;5;241m.\u001b[39mget(\u001b[38;5;28mcls\u001b[39m)\n\u001b[1;32m    145\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m copier \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[0;32m--> 146\u001b[0m     y \u001b[38;5;241m=\u001b[39m \u001b[43mcopier\u001b[49m\u001b[43m(\u001b[49m\u001b[43mx\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mmemo\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    147\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m    148\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28missubclass\u001b[39m(\u001b[38;5;28mcls\u001b[39m, \u001b[38;5;28mtype\u001b[39m):\n",
+      "File \u001b[0;32m/opt/homebrew/Caskroom/mambaforge/base/lib/python3.10/copy.py:231\u001b[0m, in \u001b[0;36m_deepcopy_dict\u001b[0;34m(x, memo, deepcopy)\u001b[0m\n\u001b[1;32m    229\u001b[0m memo[\u001b[38;5;28mid\u001b[39m(x)] \u001b[38;5;241m=\u001b[39m y\n\u001b[1;32m    230\u001b[0m \u001b[38;5;28;01mfor\u001b[39;00m key, value \u001b[38;5;129;01min\u001b[39;00m x\u001b[38;5;241m.\u001b[39mitems():\n\u001b[0;32m--> 231\u001b[0m     y[deepcopy(key, memo)] \u001b[38;5;241m=\u001b[39m \u001b[43mdeepcopy\u001b[49m\u001b[43m(\u001b[49m\u001b[43mvalue\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mmemo\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    232\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m y\n",
+      "File \u001b[0;32m/opt/homebrew/Caskroom/mambaforge/base/lib/python3.10/copy.py:153\u001b[0m, in \u001b[0;36mdeepcopy\u001b[0;34m(x, memo, _nil)\u001b[0m\n\u001b[1;32m    151\u001b[0m copier \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mgetattr\u001b[39m(x, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m__deepcopy__\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;28;01mNone\u001b[39;00m)\n\u001b[1;32m    152\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m copier \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[0;32m--> 153\u001b[0m     y \u001b[38;5;241m=\u001b[39m \u001b[43mcopier\u001b[49m\u001b[43m(\u001b[49m\u001b[43mmemo\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    154\u001b[0m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m    155\u001b[0m     reductor \u001b[38;5;241m=\u001b[39m dispatch_table\u001b[38;5;241m.\u001b[39mget(\u001b[38;5;28mcls\u001b[39m)\n",
+      "\u001b[0;31mKeyboardInterrupt\u001b[0m: "
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      ">>>>>>> remote\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "<<<<<<< local <modified: text/plain>\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "defaultdict(int, {-1: 920, 0: 77, 1: 3})"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "=======\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      ">>>>>>> remote <removed>\n"
+     ]
+    }
+   ],
+   "source": [
+    "win_count = defaultdict(int)\n",
+    "for episode in trange(1000):\n",
+    "    ttt.reset(start_player=1)\n",
+    "    tape = play(ttt, policy={1: RandomPolicy(), -1: min_max_policy})\n",
+    "    win_count[ttt.get_winner()] += 1\n",
+    "win_count"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:19:51.625238Z",
+     "start_time": "2023-12-31T10:19:51.092568Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "704c843eb09c4c5c93abc068487da053",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/1000 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "defaultdict(int, {1.0: 961, 0: 39})"
+      ]
+     },
+     "execution_count": 29,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "win_count = defaultdict(int)\n",
+    "for episode in trange(1000):\n",
+    "    ttt.reset(start_player=1)\n",
+    "    tape = play(ttt, policy={-1: RandomPolicy(), 1: q_table_policy})\n",
+    "    win_count[ttt.get_winner()] += 1\n",
+    "win_count"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:19:55.962226Z",
+     "start_time": "2023-12-31T10:19:55.288662Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "a253b5ef9064431ebd16bd7ad06bbdc2",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/1000 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "defaultdict(int, {-1: 904, 0: 96})"
+      ]
+     },
+     "execution_count": 30,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "win_count = defaultdict(int)\n",
+    "for episode in trange(1000):\n",
+    "    ttt.reset(start_player=-1)\n",
+    "    tape = play(ttt, policy={1: RandomPolicy(), -1: q_table_policy})\n",
+    "    win_count[ttt.get_winner()] += 1\n",
+    "win_count"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:19:59.085370Z",
+     "start_time": "2023-12-31T10:19:58.391789Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "f61edd7ce2f14fd9b0adb80a69ebc311",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/1000 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/plain": [
+       "defaultdict(int, {1.0: 864, 0: 99, -1: 37})"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "win_count = defaultdict(int)\n",
+    "for episode in trange(1000):\n",
+    "    ttt.reset(start_player=-1)\n",
+    "    tape = play(ttt, policy={-1: RandomPolicy(), 1: q_table_policy})\n",
+    "    win_count[ttt.get_winner()] += 1\n",
+    "win_count"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "ttt.get_winner()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2023-12-31T10:33:10.668688Z",
+     "start_time": "2023-12-31T10:33:10.588025Z"
+    },
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "import time"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "deepnote": {},
+  "deepnote_execution_queue": [],
+  "deepnote_notebook_id": "1afec097b95f478fbf952ec9418e290f",
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
