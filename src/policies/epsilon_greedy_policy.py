@@ -4,6 +4,6 @@ from .random_policy import RandomPolicy
 
 
 class EpsilonGreedyPolicy(StochasticMultiPolicy):
-    def __init__(self, policy: BasePolicy, epsilon: float = 0.1):
-        super().__init__([policy, RandomPolicy()], [1 - epsilon, epsilon])
+    def __init__(self, policy: BasePolicy, epsilon: float = 0.1, *args, **kwargs):
+        super().__init__([policy, RandomPolicy()], [1 - epsilon, epsilon], *args, **kwargs)
 

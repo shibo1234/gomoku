@@ -1,19 +1,21 @@
 import numpy as np
 from copy import deepcopy
+from typing import Callable, Optional
 
 
 class TicTacToe(object):
 
     @classmethod
-    def from_state(cls, state: tuple[int], player: int):
+    def from_state(cls, state: tuple[int, ...], player: int):
         obj = TicTacToe()
         obj.board = np.array(state)
         obj.player = player
         return obj
 
-    def __init__(self, start_player=1):
+    def __init__(self, start_player=1, default_state_formatter: Callable[[tuple[int, ...]], str] = str):
         self.board = np.zeros(9)
         self.player = start_player
+        self.default_state_formatter = default_state_formatter
 
     def move(self, action):
         if self.board[action] != 0:
@@ -30,10 +32,11 @@ class TicTacToe(object):
         self.board = np.zeros(9)
         self.player = start_player
         
-    def render(self):
-        print(self.board.reshape([3, 3]))
+    def render(self, state_formatter: Optional[Callable[[tuple[int, ...]], str]] = None):
+        formatter = state_formatter or self.default_state_formatter
+        print(formatter(self.get_state()), flush=True)
 
-    def get_state(self) -> tuple[int]:
+    def get_state(self) -> tuple[int, ...]:
         return tuple(self.board.astype(int).tolist())
 
     def get_actions(self):
