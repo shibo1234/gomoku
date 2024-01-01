@@ -5,11 +5,12 @@ class MinMaxPolicy(BaseQPolicySingle):
     def __init__(self, game_cls, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.game_cls = game_cls
+        self.original_player = self.get_player()
 
     def min_max(self, game, is_max_player):
         if game.is_terminated():
             winner = game.get_winner()
-            if winner == game.last_player():
+            if winner == self.original_player:
                 return 1
             elif winner == 0:
                 return 0
@@ -17,13 +18,10 @@ class MinMaxPolicy(BaseQPolicySingle):
                 return -1
 
         best_score = -float('inf') if is_max_player else float('inf')
-
         for action in game.get_actions():
             new_game = game.clone()
             new_game.move(action)
-
             score = self.min_max(new_game, not is_max_player)
-
             if (is_max_player and score > best_score) or (not is_max_player and score < best_score):
                 best_score = score
         return best_score
@@ -32,8 +30,7 @@ class MinMaxPolicy(BaseQPolicySingle):
         q_values = {}
         for action in action_space:
             new_game = self.game_cls.from_state(state, player)
-            new_game.move(action)
-            score = self.min_max(new_game, new_game.last_player() != player)
+            score = self.min_max(new_game, True)
             q_values[action] = score
         return q_values
 

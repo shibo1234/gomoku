@@ -12,6 +12,10 @@ class TicTacToe(object):
         obj.player = player
         return obj
 
+    @classmethod
+    def eval(cls, state, player):
+        pass
+
     def __init__(self, start_player=1, default_state_formatter: Callable[[tuple[int, ...]], str] = str):
         self.board = np.zeros(9)
         self.player = start_player
