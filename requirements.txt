@@ -1,3 +1,5 @@
 torch
 more_itertools
 nbdime
+numpy
+pandas
