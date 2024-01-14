@@ -18,7 +18,7 @@ class MinMaxPolicy(BaseQPolicySingle):
                 return 0
             else:
                 return -1
-        if not game.is_terminated and depth > 3:
+        if depth > 3:
             return self.heuristic(game.get_state(), cloned_game.player)
 
         best_score = -float('inf') if is_max_player else float('inf')
