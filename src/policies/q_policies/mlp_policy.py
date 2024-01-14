@@ -5,55 +5,52 @@ from torch import nn
 
 
 class MLPPolicy(BaseQPolicyBatch):
+
     @classmethod
-    def load(cls, mlp, file, *args, **kwargs):
-        mlp.load_state_dict(torch.load(file))
-        return cls(mlp, *args, **kwargs)
+    def load(cls, ckpt_name, ext='pt', *args, **kwargs):
+        policy = cls(*args, **kwargs)
+        policy.mlp.load_state_dict(torch.load(f'{ckpt_name}.{ext}'))
+        return policy
 
-    def save(self, file):
-        torch.save(self.mlp.state_dict(), file)
+    def save(self, ckpt_name, ext='pt'):
+        torch.save(self.mlp.state_dict(), f'{ckpt_name}.{ext}')
 
-    def __init__(self, mlp, lr=0.001, *args, **kwargs):
+    def __init__(self, mlp, lr=0.001, device='cpu', *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.mlp = mlp
+        self.mlp = mlp.to(device)
         self.criterion = nn.MSELoss()
         self.optim = torch.optim.Adam(mlp.parameters(), lr=lr)
+        self.device = device
 
     @torch.no_grad()
-    def __call__(self, state: tuple[int, ...], action_space: set[int]) -> int:
-        state_t = torch.tensor(state).float()
-        actions_t = torch.tensor(list(action_space)).long()
-        return actions_t[self.mlp(state_t)[actions_t].argmax()].item()
+    def batch_get_all_Qs(self,
+                         states: list[tuple[int, ...]],
+                         players: list[int],
+                         action_spaces: list[set[int]]) -> list[dict[int, float]]:
+        states_t = torch.tensor(states).float().to(self.device)
+        players_t = (torch.tensor(players) > 0).long().to(self.device)
+        raw_qs = self.mlp(states_t)
+        qs = raw_qs[torch.arange(raw_qs.shape[0]), players_t, :]
+        return [
+            {action: qs[i, action] for action in action_space}
+            for i, action_space in enumerate(action_spaces)
+        ]
 
-    @torch.no_grad()
-    def get_Q(self, state: tuple[int, ...], action: int) -> float:
-        state_t = torch.tensor(state).float()
-        return self.mlp(state_t)[action].item()
-
-    @torch.no_grad()
-    def batch_get_Q(self, states: list[tuple[int, ...]], actions: list[int]) -> list[float]:
-        states_t = torch.tensor(states).float()
-        actions_t = torch.tensor(actions).long()
-        return self.mlp(states_t)[torch.arange(len(actions_t)), actions_t].tolist()
-
-    @torch.no_grad()
-    def get_all_Qs(self, state: tuple[int, ...], action_space: set[int]) -> dict[int, float]:
-        state_t = torch.tensor(state).float()
-        actions_t = torch.tensor(list(action_space)).long()
-        return dict(zip(action_space, self.mlp(state_t)[actions_t].tolist()))
-
-    def batch_get_all_Qs(self, states: list[tuple[int, ...]], action_spaces: list[set[int]]) -> list[dict[int, float]]:
-        pass
-
-    def update_Q(self, state: tuple[int, ...], action: int, Q: float) -> None:
-        raise NotImplementedError
-
-    def batch_update_Q(self, states: list[tuple[int, ...]], actions: list[int], Qs: list[float]) -> None:
-        states_t = torch.tensor(states).float()
-        actions_t = torch.tensor(actions)
-        qs_t = torch.tensor(Qs).float()
+    def batch_update_Q(self,
+                       states: list[tuple[int, ...]],
+                       players: list[int],
+                       actions: list[int],
+                       Qs: list[float]) -> float:
+        states_t = torch.tensor(states).float().to(self.device)
+        actions_t = torch.tensor(actions).long().to(self.device)
+        players_t = (torch.tensor(players) > 0).long().to(self.device)
+        qs_t = torch.tensor(Qs).float().to(self.device)
         self.optim.zero_grad()
-        pred = self.mlp(states_t)[torch.arange(len(actions_t)), actions_t]
+        pred = self.mlp(states_t)[
+            torch.arange(states_t.shape[0]),
+            players_t,
+            actions_t
+        ]
         loss = self.criterion(pred, qs_t)
         loss.backward()
         self.optim.step()

@@ -71,7 +71,6 @@ class MCTS(BaseQPolicySingle):
             outcomes.append(outcome)
         return max(outcomes)
 
-
     def simulate_by_sampling(self, node):
         new_game = deepcopy(node.game)
         while not new_game.is_terminated():
@@ -98,7 +97,6 @@ class MCTS(BaseQPolicySingle):
         node = self.select_child(self.root)
         reward = self.simulated_game(node)
         self.back_propogate(node, reward)
-
 
     def back_propogate(self, node, reward):
         while node is not None:
@@ -148,7 +146,6 @@ class MCTS(BaseQPolicySingle):
             if result is not None:
                 return result
         return None
-
 
     def update_Q(self, state: tuple[int, ...], player: int, action: int, Q: float) -> None:
         raise NotImplementedError

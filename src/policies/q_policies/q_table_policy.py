@@ -11,8 +11,8 @@ class QTablePolicy(BaseQPolicySingle):
     def load(cls, ckpt_name, ext='pkl', *args, **kwargs):
         return cls(q_table=pkl.load(open(f'{ckpt_name}.{ext}', 'rb')), *args, **kwargs)
 
-    def save(self, ckpt_name):
-        pkl.dump(self.q_table, open(f'{ckpt_name}.pkl', 'wb'))
+    def save(self, ckpt_name, ext='pkl'):
+        pkl.dump(self.q_table, open(f'{ckpt_name}.{ext}', 'wb'))
 
     def __init__(self,
                  q_table: Optional[Mapping[tuple[tuple[int, ...], int, int], float]] = None,
