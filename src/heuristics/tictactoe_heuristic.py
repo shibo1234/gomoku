@@ -18,13 +18,13 @@ class TicTacToeHeuristic():
         lines = list(curr_state[:]) + list(curr_state.T[:]) + [np.diag(curr_state)] + [np.diag(np.fliplr(curr_state))]
         for line in lines:
             unique, counts = np.unique(line, return_counts=True)
-            counts_dict = dict(zip(map(unique), counts))
+            counts_dict = dict(zip(unique, counts))
             if 1 in counts_dict and -1 not in counts_dict:
                 if counts_dict[1] == 1:
                     p1 += 1
                 elif counts_dict[1] == 2:
                     p2 += 1
-            if -1 in counts_dict and 1 in counts_dict:
+            if -1 in counts_dict and 1 not in counts_dict:
                 if counts_dict[-1] == 1:
                     a1 += 1
                 elif counts_dict[-1] == 2:

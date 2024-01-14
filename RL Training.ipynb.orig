@@ -134,7 +134,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:08.195602Z"
+            "2024-01-14T11:51:20.676605Z"
            ]
           },
           {
@@ -152,7 +152,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:08.182498Z"
+            "2024-01-14T11:51:17.627466700Z"
            ]
           },
           {
@@ -178,7 +178,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:07:34.506668Z"
+            "2024-01-14T10:08:08.195602Z"
            ]
           },
           {
@@ -196,7 +196,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:07:32.859353Z"
+            "2024-01-14T10:46:44.130535Z2024-01-14T10:08:08.182498Z"
            ]
           },
           {
@@ -239,7 +239,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:08.506898Z"
+            "2024-01-14T11:51:26.695599400Z"
            ]
           },
           {
@@ -257,7 +257,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:08.501765Z"
+            "2024-01-14T11:51:25.803105Z"
            ]
           },
           {
@@ -283,7 +283,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:07:57.001839Z"
+            "2024-01-14T10:08:08.506898Z"
            ]
           },
           {
@@ -301,7 +301,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:07:56.983361Z"
+            "2024-01-14T10:08:08.501765Z"
            ]
           },
           {
@@ -341,7 +341,7 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-14T10:46:47.755858Z",
+     "end_time": "2024-01-14T11:51:30.439963Z2024-01-14T10:46:47.755858Z",
      "start_time": "2024-01-14T10:46:47.734554Z"
     },
     "collapsed": false,
@@ -351,13 +351,6 @@
        "diff": [
         {
          "diff": [
-          {
-           "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:08:08.769596Z"
-           ]
-          },
           {
            "key": 0,
            "length": 1,
@@ -373,7 +366,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:08.762320Z"
+            "2024-01-14T11:51:30.209097300Z"
            ]
           },
           {
@@ -396,16 +389,45 @@
         {
          "diff": [
           {
+           "diff": [
+            {
+             "key": 14,
+             "op": "addrange",
+             "valuelist": "08"
+            },
+            {
+             "key": 14,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 17,
+             "op": "addrange",
+             "valuelist": "08"
+            },
+            {
+             "key": 17,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 21,
+             "op": "addrange",
+             "valuelist": "69"
+            },
+            {
+             "key": 22,
+             "op": "addrange",
+             "valuelist": "96"
+            },
+            {
+             "key": 22,
+             "length": 4,
+             "op": "removerange"
+            }
+           ],
            "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:07:59.878676Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
+           "op": "patch"
           }
          ],
          "key": "end_time",
@@ -417,7 +439,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:07:59.853280Z"
+            "2024-01-14T11:25:10.220813Z2024-01-14T10:08:08.762320Z"
            ]
           },
           {
@@ -472,7 +494,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:09.151796Z"
+            "2024-01-14T11:51:42.830454200Z"
            ]
           },
           {
@@ -490,7 +512,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:09.148090Z"
+            "2024-01-14T11:51:42.265856500Z"
            ]
           },
           {
@@ -516,7 +538,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:02.047544Z"
+            "2024-01-14T10:08:09.151796Z"
            ]
           },
           {
@@ -534,7 +556,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:02.024388Z"
+            "2024-01-14T10:08:09.148090Z"
            ]
           },
           {
@@ -579,7 +601,7 @@
    "execution_count": null,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-14T10:46:51.682638Z",
+     "end_time": "2024-01-14T11:51:46.736285100Z2024-01-14T10:46:51.682638Z",
      "start_time": "2024-01-14T10:46:51.189292Z"
     },
     "collapsed": false,
@@ -589,13 +611,6 @@
        "diff": [
         {
          "diff": [
-          {
-           "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:08:09.625760Z"
-           ]
-          },
           {
            "key": 0,
            "length": 1,
@@ -611,7 +626,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:09.574246Z"
+            "2024-01-14T11:51:45.583767500Z"
            ]
           },
           {
@@ -634,16 +649,50 @@
         {
          "diff": [
           {
+           "diff": [
+            {
+             "key": 14,
+             "op": "addrange",
+             "valuelist": "08"
+            },
+            {
+             "key": 14,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 17,
+             "op": "addrange",
+             "valuelist": "09"
+            },
+            {
+             "key": 17,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 21,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 23,
+             "op": "addrange",
+             "valuelist": "57"
+            },
+            {
+             "key": 24,
+             "op": "addrange",
+             "valuelist": "0"
+            },
+            {
+             "key": 24,
+             "length": 2,
+             "op": "removerange"
+            }
+           ],
            "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:23:29.562686Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
+           "op": "patch"
           }
          ],
          "key": "end_time",
@@ -655,7 +704,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:23:29.491657Z"
+            "2024-01-14T10:08:09.574246Z"
            ]
           },
           {
@@ -709,7 +758,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:10.628344Z"
+            "2024-01-14T11:51:48.429742900Z"
            ]
           },
           {
@@ -727,7 +776,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:10.599514Z"
+            "2024-01-14T11:51:48.174671600Z"
            ]
           },
           {
@@ -753,7 +802,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:57.996378Z"
+            "2024-01-14T10:08:10.628344Z"
            ]
           },
           {
@@ -771,7 +820,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:57.971422Z"
+            "2024-01-14T10:08:10.599514Z"
            ]
           },
           {
@@ -853,7 +902,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:11.111585Z"
+            "2024-01-14T11:51:49.242901700Z"
            ]
           },
           {
@@ -871,7 +920,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:11.103885Z"
+            "2024-01-14T11:51:49.028805600Z"
            ]
           },
           {
@@ -897,7 +946,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:09:00.290873Z"
+            "2024-01-14T10:08:11.111585Z"
            ]
           },
           {
@@ -915,7 +964,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:09:00.264997Z"
+            "2024-01-14T10:46:58.607088Z2024-01-14T10:08:11.103885Z"
            ]
           },
           {
@@ -952,7 +1001,7 @@
    "execution_count": 10,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-14T10:46:59.984653Z",
+     "end_time": "2024-01-14T10:08:11.561330Z2024-01-14T10:46:59.984653Z",
      "start_time": "2024-01-14T10:46:59.958990Z"
     },
     "collapsed": false,
@@ -963,16 +1012,40 @@
         {
          "diff": [
           {
+           "diff": [
+            {
+             "key": 12,
+             "op": "addrange",
+             "valuelist": "1:51"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 15,
+             "length": 3,
+             "op": "removerange"
+            },
+            {
+             "key": 20,
+             "length": 3,
+             "op": "removerange"
+            },
+            {
+             "key": 24,
+             "op": "addrange",
+             "valuelist": "3371"
+            },
+            {
+             "key": 24,
+             "length": 1,
+             "op": "removerange"
+            }
+           ],
            "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:08:11.561330Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
+           "op": "patch"
           }
          ],
          "key": "end_time",
@@ -984,7 +1057,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:11.553769Z"
+            "2024-01-14T11:51:49.453174Z"
            ]
           },
           {
@@ -1008,13 +1081,6 @@
          "diff": [
           {
            "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:09:01.399014Z"
-           ]
-          },
-          {
-           "key": 0,
            "length": 1,
            "op": "removerange"
           }
@@ -1028,7 +1094,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:09:01.379947Z"
+            "2024-01-14T10:46:59.958990Z2024-01-14T10:08:11.553769Z"
            ]
           },
           {
@@ -1058,7 +1124,7 @@
    "execution_count": 11,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-14T10:47:00.198605Z",
+     "end_time": "2024-01-14T11:51:50.054674700Z2024-01-14T10:47:00.198605Z",
      "start_time": "2024-01-14T10:47:00.180917Z"
     },
     "collapsed": false,
@@ -1068,13 +1134,6 @@
        "diff": [
         {
          "diff": [
-          {
-           "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:08:11.801886Z"
-           ]
-          },
           {
            "key": 0,
            "length": 1,
@@ -1090,7 +1149,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:11.798804Z"
+            "2024-01-14T11:51:49.838323700Z"
            ]
           },
           {
@@ -1113,16 +1172,45 @@
         {
          "diff": [
           {
+           "diff": [
+            {
+             "key": 14,
+             "op": "addrange",
+             "valuelist": "08"
+            },
+            {
+             "key": 14,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 17,
+             "op": "addrange",
+             "valuelist": "11.8"
+            },
+            {
+             "key": 18,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 21,
+             "op": "addrange",
+             "valuelist": "8"
+            },
+            {
+             "key": 21,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 24,
+             "length": 2,
+             "op": "removerange"
+            }
+           ],
            "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:09:02.033387Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
+           "op": "patch"
           }
          ],
          "key": "end_time",
@@ -1134,7 +1222,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:09:02.012802Z"
+            "2024-01-14T11:25:13.581275Z2024-01-14T10:08:11.798804Z"
            ]
           },
           {
@@ -1187,7 +1275,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:12.439160Z"
+            "2024-01-14T11:51:50.951129400Z"
            ]
           },
           {
@@ -1205,7 +1293,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:08:12.430942Z"
+            "2024-01-14T11:51:50.778347700Z"
            ]
           },
           {
@@ -1231,7 +1319,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:09:03.310954Z"
+            "2024-01-14T10:08:12.439160Z"
            ]
           },
           {
@@ -1249,7 +1337,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T10:09:03.286671Z"
+            "2024-01-14T10:08:12.430942Z"
            ]
           },
           {
@@ -1497,95 +1585,195 @@
     "nbdime-conflicts": {
      "local_diff": [
       {
-       "diff": [
-        {
-         "diff": [
-          {
-           "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:08:23.402777Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
-          }
-         ],
-         "key": "end_time",
-         "op": "patch"
-        },
-        {
-         "diff": [
-          {
-           "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:08:17.237189Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
-          }
-         ],
-         "key": "start_time",
-         "op": "patch"
-        }
-       ],
        "key": "ExecuteTime",
-       "op": "patch"
+       "op": "add",
+       "value": {
+        "end_time": "2024-01-14T11:53:45.133708300Z",
+        "start_time": "2024-01-14T11:53:13.286449400Z"
+       }
       }
      ],
      "remote_diff": [
       {
-       "diff": [
-        {
-         "diff": [
-          {
-           "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:17:46.252894Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
-          }
-         ],
-         "key": "end_time",
-         "op": "patch"
-        },
-        {
-         "diff": [
-          {
-           "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T10:17:15.712516Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
-          }
-         ],
-         "key": "start_time",
-         "op": "patch"
-        }
-       ],
        "key": "ExecuteTime",
-       "op": "patch"
+       "op": "add",
+       "value": {
+        "end_time": "2024-01-14T10:08:23.402777Z",
+        "start_time": "2024-01-14T10:08:17.237189Z"
+       }
       }
      ]
     }
    },
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "<<<<<<< local\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O |   |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O |   |   |\n",
+      "+---+---+---+\n",
+      "|   | X | X |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O |   |   |\n",
+      "+---+---+---+\n",
+      "| O | X | X |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O |   |   |\n",
+      "+---+---+---+\n",
+      "| O | X | X |\n",
+      "+---+---+---+\n",
+      "| X |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O |   | O |\n",
+      "+---+---+---+\n",
+      "| O | X | X |\n",
+      "+---+---+---+\n",
+      "| X |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O | X | O |\n",
+      "+---+---+---+\n",
+      "| O | X | X |\n",
+      "+---+---+---+\n",
+      "| X |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O | X | O |\n",
+      "+---+---+---+\n",
+      "| O | X | X |\n",
+      "+---+---+---+\n",
+      "| X | O |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O | X | O |\n",
+      "+---+---+---+\n",
+      "| O | X | X |\n",
+      "+---+---+---+\n",
+      "| X | O | X |\n",
+      "+---+---+---+\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "=======\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O |   |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O | X |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O | X | O |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n"
+     ]
+    },
+    {
+     "ename": "ValueError",
+     "evalue": "invalid literal for int() with base 10: ''",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[25], line 2\u001b[0m\n\u001b[1;32m      1\u001b[0m ttt\u001b[38;5;241m.\u001b[39mreset()\n\u001b[0;32m----> 2\u001b[0m tape \u001b[38;5;241m=\u001b[39m \u001b[43mplay\u001b[49m\u001b[43m(\u001b[49m\u001b[43mttt\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mpolicy\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43m{\u001b[49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43mhuman_policy\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m-\u001b[39;49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43mmin_max_policy\u001b[49m\u001b[43m}\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mprint_state\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43;01mTrue\u001b[39;49;00m\u001b[43m)\u001b[49m\n",
+      "Cell \u001b[0;32mIn[20], line 19\u001b[0m, in \u001b[0;36mplay\u001b[0;34m(ttt, policy, print_state)\u001b[0m\n\u001b[1;32m     17\u001b[0m     ttt\u001b[38;5;241m.\u001b[39mrender()\n\u001b[1;32m     18\u001b[0m player \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mplayer\n\u001b[0;32m---> 19\u001b[0m action \u001b[38;5;241m=\u001b[39m \u001b[43mttt\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43magent_move\u001b[49m\u001b[43m(\u001b[49m\u001b[43mpolicy\u001b[49m\u001b[43m[\u001b[49m\u001b[43mplayer\u001b[49m\u001b[43m]\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     20\u001b[0m state \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_state()\n\u001b[1;32m     21\u001b[0m winner \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_winner()\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/tictactoe.py:31\u001b[0m, in \u001b[0;36mTicTacToe.agent_move\u001b[0;34m(self, policy)\u001b[0m\n\u001b[1;32m     30\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21magent_move\u001b[39m(\u001b[38;5;28mself\u001b[39m, policy):\n\u001b[0;32m---> 31\u001b[0m     best_action \u001b[38;5;241m=\u001b[39m \u001b[43mpolicy\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_state\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mplayer\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_actions\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     32\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mmove(best_action)\n\u001b[1;32m     33\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m best_action\n",
+      "File \u001b[0;32m~/Projects/gomoku/src/policies/prompt_policy.py:15\u001b[0m, in \u001b[0;36mPromptPolicy.__call__\u001b[0;34m(self, state, player, actions)\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21m__call__\u001b[39m(\u001b[38;5;28mself\u001b[39m, state: \u001b[38;5;28mtuple\u001b[39m[\u001b[38;5;28mint\u001b[39m, \u001b[38;5;241m.\u001b[39m\u001b[38;5;241m.\u001b[39m\u001b[38;5;241m.\u001b[39m], player: \u001b[38;5;28mint\u001b[39m, actions: \u001b[38;5;28mset\u001b[39m[\u001b[38;5;28mint\u001b[39m]) \u001b[38;5;241m-\u001b[39m\u001b[38;5;241m>\u001b[39m \u001b[38;5;28mint\u001b[39m:\n\u001b[1;32m     14\u001b[0m     time\u001b[38;5;241m.\u001b[39msleep(\u001b[38;5;241m0.1\u001b[39m)  \u001b[38;5;66;03m# to prevent the prompt from being printed before the game state\u001b[39;00m\n\u001b[0;32m---> 15\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28;43mint\u001b[39;49m\u001b[43m(\u001b[49m\u001b[38;5;28;43minput\u001b[39;49m\u001b[43m(\u001b[49m\u001b[38;5;124;43mf\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mEnter action for \u001b[39;49m\u001b[38;5;132;43;01m{\u001b[39;49;00m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mformatter\u001b[49m\u001b[43m(\u001b[49m\u001b[43mplayer\u001b[49m\u001b[43m)\u001b[49m\u001b[38;5;132;43;01m}\u001b[39;49;00m\u001b[38;5;124;43m: \u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m)\u001b[49m\u001b[43m)\u001b[49m\n",
+      "\u001b[0;31mValueError\u001b[0m: invalid literal for int() with base 10: ''"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      ">>>>>>> remote\n"
+     ]
+    }
+   ],
    "source": [
     "ttt.reset()\n",
     "tape = play(ttt, policy={1: human_policy, -1: q_table_policy}, print_state=True)"
@@ -1785,9 +1973,55 @@
         {
          "diff": [
           {
+           "diff": [
+            {
+             "key": 12,
+             "op": "addrange",
+             "valuelist": "1"
+            },
+            {
+             "key": 12,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 14,
+             "op": "addrange",
+             "valuelist": "5"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 18,
+             "op": "addrange",
+             "valuelist": "2."
+            },
+            {
+             "key": 19,
+             "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 22,
+             "op": "addrange",
+             "valuelist": "9"
+            },
+            {
+             "key": 22,
+             "length": 3,
+             "op": "removerange"
+            },
+            {
+             "key": 26,
+             "op": "addrange",
+             "valuelist": "29700"
+            }
+           ],
            "key": 0,
-           "length": 1,
-           "op": "removerange"
+           "op": "patch"
           }
          ],
          "key": "end_time",
@@ -1798,53 +2032,43 @@
           {
            "diff": [
             {
-             "key": 8,
+             "key": 12,
              "op": "addrange",
              "valuelist": "1"
             },
             {
-             "key": 8,
-             "length": 1,
-             "op": "removerange"
-            },
-            {
              "key": 12,
-             "op": "addrange",
-             "valuelist": "9:"
-            },
-            {
-             "key": 13,
-             "op": "addrange",
-             "valuelist": "6"
-            },
-            {
-             "key": 14,
-             "op": "addrange",
-             "valuelist": "37."
-            },
-            {
-             "key": 14,
              "length": 1,
              "op": "removerange"
             },
             {
-             "key": 16,
+             "key": 14,
+             "op": "addrange",
+             "valuelist": "5"
+            },
+            {
+             "key": 15,
              "length": 1,
              "op": "removerange"
             },
             {
-             "key": 19,
-             "length": 3,
-             "op": "removerange"
-            },
-            {
-             "key": 23,
+             "key": 20,
              "op": "addrange",
-             "valuelist": "8"
+             "valuelist": "9133574"
             },
             {
-             "key": 23,
+             "key": 20,
              "length": 2,
+             "op": "removerange"
+            },
+            {
+             "key": 23,
+             "op": "addrange",
+             "valuelist": "0"
+            },
+            {
+             "key": 23,
+             "length": 3,
              "op": "removerange"
             }
            ],
@@ -1868,59 +2092,54 @@
           {
            "diff": [
             {
-             "key": 8,
-             "op": "addrange",
-             "valuelist": "1"
-            },
-            {
-             "key": 8,
-             "length": 1,
-             "op": "removerange"
-            },
-            {
              "key": 11,
-             "op": "addrange",
-             "valuelist": "1"
-            },
-            {
-             "key": 12,
-             "op": "addrange",
-             "valuelist": ":17"
-            },
-            {
-             "key": 12,
              "length": 1,
              "op": "removerange"
             },
             {
-             "key": 15,
+             "key": 13,
              "op": "addrange",
-             "valuelist": "4"
+             "valuelist": "9"
             },
             {
              "key": 15,
-             "length": 4,
+             "op": "addrange",
+             "valuelist": "6"
+            },
+            {
+             "key": 15,
+             "length": 1,
+             "op": "removerange"
+            },
+            {
+             "key": 17,
+             "op": "addrange",
+             "valuelist": "37"
+            },
+            {
+             "key": 17,
+             "length": 2,
              "op": "removerange"
             },
             {
              "key": 20,
              "op": "addrange",
-             "valuelist": "4"
+             "valuelist": "25"
             },
             {
-             "key": 21,
-             "length": 1,
+             "key": 20,
+             "length": 2,
              "op": "removerange"
             },
             {
              "key": 23,
-             "length": 1,
-             "op": "removerange"
+             "op": "addrange",
+             "valuelist": "37"
             },
             {
-             "key": 26,
-             "op": "addrange",
-             "valuelist": "5"
+             "key": 23,
+             "length": 2,
+             "op": "removerange"
             }
            ],
            "key": 0,
@@ -1976,75 +2195,16 @@
         {
          "diff": [
           {
-           "diff": [
-            {
-             "key": 8,
-             "op": "addrange",
-             "valuelist": "1"
-            },
-            {
-             "key": 8,
-             "length": 1,
-             "op": "removerange"
-            },
-            {
-             "key": 11,
-             "op": "addrange",
-             "valuelist": "1"
-            },
-            {
-             "key": 12,
-             "length": 1,
-             "op": "removerange"
-            },
-            {
-             "key": 15,
-             "op": "addrange",
-             "valuelist": "3"
-            },
-            {
-             "key": 15,
-             "length": 1,
-             "op": "removerange"
-            },
-            {
-             "key": 17,
-             "op": "addrange",
-             "valuelist": "49"
-            },
-            {
-             "key": 17,
-             "length": 2,
-             "op": "removerange"
-            },
-            {
-             "key": 21,
-             "op": "addrange",
-             "valuelist": "5"
-            },
-            {
-             "key": 21,
-             "length": 1,
-             "op": "removerange"
-            },
-            {
-             "key": 23,
-             "op": "addrange",
-             "valuelist": "8"
-            },
-            {
-             "key": 24,
-             "op": "addrange",
-             "valuelist": "1"
-            },
-            {
-             "key": 24,
-             "length": 2,
-             "op": "removerange"
-            }
-           ],
            "key": 0,
-           "op": "patch"
+           "op": "addrange",
+           "valuelist": [
+            "2024-01-14T11:54:24.593989700Z"
+           ]
+          },
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
           }
          ],
          "key": "end_time",
@@ -2053,50 +2213,16 @@
         {
          "diff": [
           {
-           "diff": [
-            {
-             "key": 8,
-             "op": "addrange",
-             "valuelist": "1"
-            },
-            {
-             "key": 8,
-             "length": 1,
-             "op": "removerange"
-            },
-            {
-             "key": 12,
-             "op": "addrange",
-             "valuelist": "9"
-            },
-            {
-             "key": 12,
-             "length": 1,
-             "op": "removerange"
-            },
-            {
-             "key": 17,
-             "op": "addrange",
-             "valuelist": "56."
-            },
-            {
-             "key": 18,
-             "length": 3,
-             "op": "removerange"
-            },
-            {
-             "key": 23,
-             "op": "addrange",
-             "valuelist": "787"
-            },
-            {
-             "key": 23,
-             "length": 3,
-             "op": "removerange"
-            }
-           ],
            "key": 0,
-           "op": "patch"
+           "op": "addrange",
+           "valuelist": [
+            "2024-01-14T11:54:23.212063200Z"
+           ]
+          },
+          {
+           "key": 0,
+           "length": 1,
+           "op": "removerange"
           }
          ],
          "key": "start_time",
@@ -2114,6 +2240,13 @@
          "diff": [
           {
            "key": 0,
+           "op": "addrange",
+           "valuelist": [
+            "2024-01-14T10:03:49.752871Z"
+           ]
+          },
+          {
+           "key": 0,
            "length": 1,
            "op": "removerange"
           }
@@ -2123,6 +2256,13 @@
         },
         {
          "diff": [
+          {
+           "key": 0,
+           "op": "addrange",
+           "valuelist": [
+            "2024-01-14T09:58:56.234787Z"
+           ]
+          },
           {
            "key": 0,
            "length": 1,
@@ -2141,9 +2281,16 @@
    },
    "outputs": [
     {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "<<<<<<< local\n"
+     ]
+    },
+    {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "2a8199d0734b4d4a8fbd988114d85b92",
+       "model_id": "3c3cfaf1418045bdab70caef5acd1129",
        "version_major": 2,
        "version_minor": 0
       },
@@ -2153,6 +2300,206 @@
      },
      "metadata": {},
      "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "d2c9601e2ddb4f51b3c19670ec7ed540",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/100 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "db1efb2a07f1464080508c2b6d7d8b96",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/100 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "2e39916bb8444b74a0bec1fc2a3dc1cb",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/100 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "=======\n"
+     ]
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "2d099917ec394872b002901312d1b82d",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/10 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "e97c572f6a234964a0bb4117465c8f60",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/10 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "c3c404ae961043259569d3c6de7b1a8a",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/10 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "37a1058dd2d749b89cc22526b5922f6e",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/10 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Random Policy</th>\n",
+       "      <th>MinMaxPolicy</th>\n",
+       "      <th>Tie</th>\n",
+       "      <th>Player -1</th>\n",
+       "      <th>Player 1</th>\n",
+       "      <th>Start Player</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>4</td>\n",
+       "      <td>6</td>\n",
+       "      <td>0</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "      <td>Random Policy</td>\n",
+       "      <td>Random Policy</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>0</td>\n",
+       "      <td>10</td>\n",
+       "      <td>0</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "      <td>Random Policy</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>1</td>\n",
+       "      <td>9</td>\n",
+       "      <td>0</td>\n",
+       "      <td>Random Policy</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>0</td>\n",
+       "      <td>10</td>\n",
+       "      <td>0</td>\n",
+       "      <td>Random Policy</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "      <td>Random Policy</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   Random Policy  MinMaxPolicy  Tie      Player -1       Player 1  \\\n",
+       "0              4             6    0   MinMaxPolicy  Random Policy   \n",
+       "1              0            10    0   MinMaxPolicy  Random Policy   \n",
+       "2              1             9    0  Random Policy   MinMaxPolicy   \n",
+       "3              0            10    0  Random Policy   MinMaxPolicy   \n",
+       "\n",
+       "    Start Player  \n",
+       "0  Random Policy  \n",
+       "1   MinMaxPolicy  \n",
+       "2   MinMaxPolicy  \n",
+       "3  Random Policy  "
+      ]
+     },
+     "execution_count": 52,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      ">>>>>>> remote\n"
+     ]
     },
     {
      "data": {
@@ -2197,6 +2544,13 @@
      "output_type": "display_data"
     },
     {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "<<<<<<< local <modified: text/html, text/plain>\n"
+     ]
+    },
+    {
      "data": {
       "text/html": [
        "<div>\n",
@@ -2228,36 +2582,36 @@
        "  <tbody>\n",
        "    <tr>\n",
        "      <th>0</th>\n",
-       "      <td>15</td>\n",
-       "      <td>71</td>\n",
-       "      <td>14</td>\n",
+       "      <td>16</td>\n",
+       "      <td>73</td>\n",
+       "      <td>11</td>\n",
        "      <td>MLP Policy</td>\n",
        "      <td>Random Policy</td>\n",
        "      <td>Random Policy</td>\n",
        "    </tr>\n",
        "    <tr>\n",
        "      <th>1</th>\n",
-       "      <td>1</td>\n",
+       "      <td>2</td>\n",
        "      <td>93</td>\n",
-       "      <td>6</td>\n",
+       "      <td>5</td>\n",
        "      <td>MLP Policy</td>\n",
        "      <td>Random Policy</td>\n",
        "      <td>MLP Policy</td>\n",
        "    </tr>\n",
        "    <tr>\n",
        "      <th>2</th>\n",
-       "      <td>2</td>\n",
+       "      <td>1</td>\n",
        "      <td>95</td>\n",
-       "      <td>3</td>\n",
+       "      <td>4</td>\n",
        "      <td>Random Policy</td>\n",
        "      <td>MLP Policy</td>\n",
        "      <td>MLP Policy</td>\n",
        "    </tr>\n",
        "    <tr>\n",
        "      <th>3</th>\n",
-       "      <td>3</td>\n",
-       "      <td>91</td>\n",
-       "      <td>6</td>\n",
+       "      <td>11</td>\n",
+       "      <td>81</td>\n",
+       "      <td>8</td>\n",
        "      <td>Random Policy</td>\n",
        "      <td>MLP Policy</td>\n",
        "      <td>Random Policy</td>\n",
@@ -2268,15 +2622,29 @@
       ],
       "text/plain": [
        "   Random Policy  MLP Policy  Tie      Player -1       Player 1   Start Player\n",
-       "0             15          71   14     MLP Policy  Random Policy  Random Policy\n",
-       "1              1          93    6     MLP Policy  Random Policy     MLP Policy\n",
-       "2              2          95    3  Random Policy     MLP Policy     MLP Policy\n",
-       "3              3          91    6  Random Policy     MLP Policy  Random Policy"
+       "0             16          73   11     MLP Policy  Random Policy  Random Policy\n",
+       "1              2          93    5     MLP Policy  Random Policy     MLP Policy\n",
+       "2              1          95    4  Random Policy     MLP Policy     MLP Policy\n",
+       "3             11          81    8  Random Policy     MLP Policy  Random Policy"
       ]
      },
      "execution_count": 16,
      "metadata": {},
      "output_type": "execute_result"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "=======\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      ">>>>>>> remote <removed>\n"
+     ]
     }
    ],
    "source": [
