@@ -13,11 +13,11 @@ class MinMaxPolicy(BaseQPolicySingle):
         if game.is_terminated() and depth <= 3:
             winner = game.get_winner()
             if winner == cloned_game.player:
-                return 1
+                return 10
             elif winner == 0:
                 return 0
             else:
-                return -1
+                return -10
         if depth > 3:
             return self.heuristic(game.get_state(), cloned_game.player)
 
