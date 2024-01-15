@@ -20,12 +20,14 @@ class TicTacToe(object):
         self.board = np.zeros(9)
         self.player = start_player
         self.default_state_formatter = default_state_formatter
+        self.action_history = []
 
     def move(self, action):
         if self.board[action] != 0:
             raise Exception("Invalid move")
         self.board[action] = self.player
         self.player = -self.player
+        self.action_history.append(action)
 
     def agent_move(self, policy):
         best_action = policy(self.get_state(), self.player, self.get_actions())
@@ -75,3 +77,17 @@ class TicTacToe(object):
 
     def last_player(self):
         return -self.player
+
+    def apply_action(self, action):
+        if self.board[action] != 0:
+            raise Exception("Invalid move")
+        self.board[action] = self.player
+        self.player = -self.player
+        self.action_history.append(action)
+
+    def undo_action(self):
+        if not self.action_history:
+            raise Exception("No actions to undo")
+        last_action = self.action_history.pop()
+        self.board[last_action] = 0
+        self.player = -self.player

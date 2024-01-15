@@ -107,12 +107,19 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": false
+   },
+   "source": []
+  },
+  {
    "cell_type": "code",
    "execution_count": 1,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:19:56.875139Z",
-     "start_time": "2024-01-15T09:19:55.317385Z"
+     "end_time": "2024-01-15T11:50:47.162550Z",
+     "start_time": "2024-01-15T11:50:46.083335Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -216,8 +223,8 @@
    "execution_count": 2,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:19:57.211712Z",
-     "start_time": "2024-01-15T09:19:56.875011Z"
+     "end_time": "2024-01-15T11:50:47.431325Z",
+     "start_time": "2024-01-15T11:50:47.160336Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -332,8 +339,8 @@
    "execution_count": 3,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:19:57.916922Z",
-     "start_time": "2024-01-15T09:19:57.897873Z"
+     "end_time": "2024-01-15T11:50:47.432936Z",
+     "start_time": "2024-01-15T11:50:47.399189Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -449,8 +456,8 @@
    "execution_count": 4,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:19:58.417343Z",
-     "start_time": "2024-01-15T09:19:58.199774Z"
+     "end_time": "2024-01-15T11:50:47.434466Z",
+     "start_time": "2024-01-15T11:50:47.401925Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -570,8 +577,8 @@
    "execution_count": 5,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:20:00.346837Z",
-     "start_time": "2024-01-15T09:19:59.529956Z"
+     "end_time": "2024-01-15T11:50:47.919310Z",
+     "start_time": "2024-01-15T11:50:47.406326Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -698,8 +705,8 @@
    "execution_count": 6,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:20:00.821895Z",
-     "start_time": "2024-01-15T09:20:00.805003Z"
+     "end_time": "2024-01-15T11:50:47.925368Z",
+     "start_time": "2024-01-15T11:50:47.921841Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -842,8 +849,8 @@
    "execution_count": 7,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:20:01.804487Z",
-     "start_time": "2024-01-15T09:20:01.782311Z"
+     "end_time": "2024-01-15T11:50:47.934230Z",
+     "start_time": "2024-01-15T11:50:47.927290Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -955,8 +962,8 @@
    "execution_count": 8,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:20:01.990444Z",
-     "start_time": "2024-01-15T09:20:01.978781Z"
+     "end_time": "2024-01-15T11:50:47.934837Z",
+     "start_time": "2024-01-15T11:50:47.930946Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -1061,8 +1068,8 @@
    "execution_count": 9,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:20:02.746161Z",
-     "start_time": "2024-01-15T09:20:02.734628Z"
+     "end_time": "2024-01-15T11:50:48.118762Z",
+     "start_time": "2024-01-15T11:50:48.079915Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -1176,8 +1183,8 @@
    "execution_count": 10,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:20:03.611265Z",
-     "start_time": "2024-01-15T09:20:03.584745Z"
+     "end_time": "2024-01-15T11:50:48.376268Z",
+     "start_time": "2024-01-15T11:50:48.360342Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -1309,11 +1316,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 12,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-14T16:17:59.388046Z",
-     "start_time": "2024-01-14T16:17:59.362007Z"
+     "end_time": "2024-01-15T11:03:55.494965Z",
+     "start_time": "2024-01-15T11:03:55.485291Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -32755,11 +32762,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 13,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:20:14.798091Z",
-     "start_time": "2024-01-15T09:20:12.137554Z"
+     "end_time": "2024-01-15T11:04:11.515688Z",
+     "start_time": "2024-01-15T11:04:01.726077Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -32865,27 +32872,53 @@
       "|   |   |   |\n",
       "+---+---+---+\n",
       "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O |   |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O | X |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O | X | O |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   |   |   |\n",
+      "+---+---+---+\n",
+      "\n",
+      "+---+---+---+\n",
+      "| O | X | O |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
+      "+---+---+---+\n",
+      "|   | X |   |\n",
       "+---+---+---+\n"
-     ]
-    },
-    {
-     "ename": "ValueError",
-     "evalue": "invalid literal for int() with base 10: ''",
-     "output_type": "error",
-     "traceback": [
-      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-      "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
-      "Cell \u001b[0;32mIn[11], line 2\u001b[0m\n\u001b[1;32m      1\u001b[0m ttt\u001b[38;5;241m.\u001b[39mreset()\n\u001b[0;32m----> 2\u001b[0m tape \u001b[38;5;241m=\u001b[39m \u001b[43mplay\u001b[49m\u001b[43m(\u001b[49m\u001b[43mttt\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mpolicy\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43m{\u001b[49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43mhuman_policy\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m-\u001b[39;49m\u001b[38;5;241;43m1\u001b[39;49m\u001b[43m:\u001b[49m\u001b[43m \u001b[49m\u001b[43mq_table_policy\u001b[49m\u001b[43m}\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mprint_state\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43;01mTrue\u001b[39;49;00m\u001b[43m)\u001b[49m\n",
-      "Cell \u001b[0;32mIn[6], line 19\u001b[0m, in \u001b[0;36mplay\u001b[0;34m(ttt, policy, print_state)\u001b[0m\n\u001b[1;32m     17\u001b[0m     ttt\u001b[38;5;241m.\u001b[39mrender()\n\u001b[1;32m     18\u001b[0m player \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mplayer\n\u001b[0;32m---> 19\u001b[0m action \u001b[38;5;241m=\u001b[39m \u001b[43mttt\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43magent_move\u001b[49m\u001b[43m(\u001b[49m\u001b[43mpolicy\u001b[49m\u001b[43m[\u001b[49m\u001b[43mplayer\u001b[49m\u001b[43m]\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     20\u001b[0m state \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_state()\n\u001b[1;32m     21\u001b[0m winner \u001b[38;5;241m=\u001b[39m ttt\u001b[38;5;241m.\u001b[39mget_winner()\n",
-      "File \u001b[0;32m~/Projects/gomoku/src/tictactoe.py:31\u001b[0m, in \u001b[0;36mTicTacToe.agent_move\u001b[0;34m(self, policy)\u001b[0m\n\u001b[1;32m     30\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21magent_move\u001b[39m(\u001b[38;5;28mself\u001b[39m, policy):\n\u001b[0;32m---> 31\u001b[0m     best_action \u001b[38;5;241m=\u001b[39m \u001b[43mpolicy\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_state\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mplayer\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget_actions\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     32\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mmove(best_action)\n\u001b[1;32m     33\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m best_action\n",
-      "File \u001b[0;32m~/Projects/gomoku/src/policies/prompt_policy.py:15\u001b[0m, in \u001b[0;36mPromptPolicy.__call__\u001b[0;34m(self, state, player, actions)\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21m__call__\u001b[39m(\u001b[38;5;28mself\u001b[39m, state: \u001b[38;5;28mtuple\u001b[39m[\u001b[38;5;28mint\u001b[39m, \u001b[38;5;241m.\u001b[39m\u001b[38;5;241m.\u001b[39m\u001b[38;5;241m.\u001b[39m], player: \u001b[38;5;28mint\u001b[39m, actions: \u001b[38;5;28mset\u001b[39m[\u001b[38;5;28mint\u001b[39m]) \u001b[38;5;241m-\u001b[39m\u001b[38;5;241m>\u001b[39m \u001b[38;5;28mint\u001b[39m:\n\u001b[1;32m     14\u001b[0m     time\u001b[38;5;241m.\u001b[39msleep(\u001b[38;5;241m0.1\u001b[39m)  \u001b[38;5;66;03m# to prevent the prompt from being printed before the game state\u001b[39;00m\n\u001b[0;32m---> 15\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28;43mint\u001b[39;49m\u001b[43m(\u001b[49m\u001b[38;5;28;43minput\u001b[39;49m\u001b[43m(\u001b[49m\u001b[38;5;124;43mf\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mEnter action for \u001b[39;49m\u001b[38;5;132;43;01m{\u001b[39;49;00m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mformatter\u001b[49m\u001b[43m(\u001b[49m\u001b[43mplayer\u001b[49m\u001b[43m)\u001b[49m\u001b[38;5;132;43;01m}\u001b[39;49;00m\u001b[38;5;124;43m: \u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m)\u001b[49m\u001b[43m)\u001b[49m\n",
-      "\u001b[0;31mValueError\u001b[0m: invalid literal for int() with base 10: ''"
      ]
     }
    ],
    "source": [
     "ttt.reset()\n",
-    "tape = play(ttt, policy={1: human_policy, -1: q_table_policy}, print_state=True)"
+    "tape = play(ttt, policy={1: human_policy, -1: min_max_policy}, print_state=True)"
    ]
   },
   {
@@ -33068,11 +33101,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 11,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-15T09:20:18.419343Z",
-     "start_time": "2024-01-15T09:20:18.401109Z"
+     "end_time": "2024-01-15T11:50:55.551426Z",
+     "start_time": "2024-01-15T11:50:55.516225Z"
     },
     "collapsed": false,
     "nbdime-conflicts": {
@@ -33259,21 +33292,20 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 12,
    "metadata": {
     "ExecuteTime": {
-     "end_time": "2024-01-14T20:11:56.997938Z",
-     "start_time": "2024-01-14T20:11:56.546404Z"
+     "start_time": "2024-01-15T09:20:22.026790Z"
     },
     "collapsed": false,
-    "is_executing": true,
     "nbdime-conflicts": {
      "local_diff": [
       {
        "diff": [
         {
          "key": "end_time",
-         "op": "remove"
+         "op": "add",
+         "value": "2024-01-14T20:11:56.997938Z"
         },
         {
          "diff": [
@@ -33281,7 +33313,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-15T09:20:22.026790Z"
+            "2024-01-14T20:11:56.546404Z"
            ]
           },
           {
@@ -33302,22 +33334,9 @@
       {
        "diff": [
         {
-         "diff": [
-          {
-           "key": 0,
-           "op": "addrange",
-           "valuelist": [
-            "2024-01-14T21:35:44.155553Z"
-           ]
-          },
-          {
-           "key": 0,
-           "length": 1,
-           "op": "removerange"
-          }
-         ],
          "key": "end_time",
-         "op": "patch"
+         "op": "add",
+         "value": "2024-01-15T11:52:25.740855Z"
         },
         {
          "diff": [
@@ -33325,7 +33344,7 @@
            "key": 0,
            "op": "addrange",
            "valuelist": [
-            "2024-01-14T21:35:43.763917Z"
+            "2024-01-15T11:50:56.588963Z"
            ]
           },
           {
@@ -33355,7 +33374,7 @@
     {
      "data": {
       "application/vnd.jupyter.widget-view+json": {
-       "model_id": "73eea4fbd7a0440e9ae38e25501a8e21",
+       "model_id": "92eb9ac956c34a3381e934d617c00e9e",
        "version_major": 2,
        "version_minor": 0
       },
@@ -33365,158 +33384,6 @@
      },
      "metadata": {},
      "output_type": "display_data"
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "=======\n"
-     ]
-    },
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "5b53a556d707407ea4cf992a531f61a7",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "  0%|          | 0/100 [00:00<?, ?it/s]"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "53b54909a3fb479e95da2b5ff27c6598",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "  0%|          | 0/100 [00:00<?, ?it/s]"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "4c02ebd4002f48cfbe4185f46924f8e0",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "  0%|          | 0/100 [00:00<?, ?it/s]"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "f369ee05e9194b5b89c68d84e3a9add2",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "  0%|          | 0/100 [00:00<?, ?it/s]"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>Random Policy</th>\n",
-       "      <th>MLP Policy</th>\n",
-       "      <th>Tie</th>\n",
-       "      <th>Player -1</th>\n",
-       "      <th>Player 1</th>\n",
-       "      <th>Start Player</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>6</td>\n",
-       "      <td>89</td>\n",
-       "      <td>5</td>\n",
-       "      <td>MLP Policy</td>\n",
-       "      <td>Random Policy</td>\n",
-       "      <td>Random Policy</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>0</td>\n",
-       "      <td>97</td>\n",
-       "      <td>3</td>\n",
-       "      <td>MLP Policy</td>\n",
-       "      <td>Random Policy</td>\n",
-       "      <td>MLP Policy</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>0</td>\n",
-       "      <td>93</td>\n",
-       "      <td>7</td>\n",
-       "      <td>Random Policy</td>\n",
-       "      <td>MLP Policy</td>\n",
-       "      <td>MLP Policy</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>3</td>\n",
-       "      <td>83</td>\n",
-       "      <td>14</td>\n",
-       "      <td>Random Policy</td>\n",
-       "      <td>MLP Policy</td>\n",
-       "      <td>Random Policy</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "   Random Policy  MLP Policy  Tie      Player -1       Player 1   Start Player\n",
-       "0              6          89    5     MLP Policy  Random Policy  Random Policy\n",
-       "1              0          97    3     MLP Policy  Random Policy     MLP Policy\n",
-       "2              0          93    7  Random Policy     MLP Policy     MLP Policy\n",
-       "3              3          83   14  Random Policy     MLP Policy  Random Policy"
-      ]
-     },
-     "execution_count": 22,
-     "metadata": {},
-     "output_type": "execute_result"
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      ">>>>>>> remote\n"
-     ]
     },
     {
      "data": {
@@ -33647,18 +33514,173 @@
      "execution_count": 20,
      "metadata": {},
      "output_type": "execute_result"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "=======\n"
+     ]
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "564e546fab764329b0a207dce65e6daa",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/100 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "1627818c970e481dabcaf405ee8c46e2",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/100 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "caa468a18e5145c5b0ce8f185898b0b8",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/100 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "cea425202dba4071b8c45371654e1889",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "  0%|          | 0/100 [00:00<?, ?it/s]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>MinMaxPolicy</th>\n",
+       "      <th>RandomPolicy</th>\n",
+       "      <th>Tie</th>\n",
+       "      <th>Player -1</th>\n",
+       "      <th>Player 1</th>\n",
+       "      <th>Start Player</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>97</td>\n",
+       "      <td>0</td>\n",
+       "      <td>3</td>\n",
+       "      <td>RandomPolicy</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>89</td>\n",
+       "      <td>0</td>\n",
+       "      <td>11</td>\n",
+       "      <td>RandomPolicy</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "      <td>RandomPolicy</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>89</td>\n",
+       "      <td>0</td>\n",
+       "      <td>11</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "      <td>RandomPolicy</td>\n",
+       "      <td>RandomPolicy</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>96</td>\n",
+       "      <td>0</td>\n",
+       "      <td>4</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "      <td>RandomPolicy</td>\n",
+       "      <td>MinMaxPolicy</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   MinMaxPolicy  RandomPolicy  Tie     Player -1      Player 1  Start Player\n",
+       "0            97             0    3  RandomPolicy  MinMaxPolicy  MinMaxPolicy\n",
+       "1            89             0   11  RandomPolicy  MinMaxPolicy  RandomPolicy\n",
+       "2            89             0   11  MinMaxPolicy  RandomPolicy  RandomPolicy\n",
+       "3            96             0    4  MinMaxPolicy  RandomPolicy  MinMaxPolicy"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      ">>>>>>> remote\n"
+     ]
     }
    ],
    "source": [
     "<<<<<<< local\n",
+    "policy_1 = RandomPolicy(name='Random Policy')\n",
+    "# # policy_1 = q_table_policy\n",
+    "policy_2 = q_table_policy\n",
+    "policy_2 = mlp_policy\n",
+    "=======\n",
     "# policy_1 = RandomPolicy(name='Random Policy')\n",
     "# policy_1 = q_table_policy\n",
     "policy_1 = min_max_policy\n",
-    "=======\n",
-    "policy_1 = RandomPolicy(name='Random Policy')\n",
-    "# policy_2 = q_table_policy\n",
+    "# policy_2 = mlp_policy\n",
+    "policy_2 = RandomPolicy(name='RandomPolicy')\n",
     ">>>>>>> remote\n",
-    "policy_2 = mlp_policy\n",
     "\n",
     "result_list = []\n",
     "for p1_role, start_player in [[1, 1], [1, -1], [-1, 1], [-1, -1]]:\n",
@@ -33670,19 +33692,6 @@
     "    result_list.append(result)\n",
     "pd.DataFrame(result_list)"
    ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 17,
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2024-01-15T06:43:57.282159Z",
-     "start_time": "2024-01-15T06:43:57.280215Z"
-    },
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": []
   },
   {
    "cell_type": "code",

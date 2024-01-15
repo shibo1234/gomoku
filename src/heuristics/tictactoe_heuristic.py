@@ -32,7 +32,7 @@ class TicTacToeHeuristic():
 
         scores = {'p1': p1, 'p2': p2, 'a1': a1, 'a2': a2}
 
-        return scores['p1'] + scores['p2'] * 3 - scores['a2'] * 3 - scores['a1']
+        return p1 + p2 * 3 - a2 * 3 - a1
 
 
 
