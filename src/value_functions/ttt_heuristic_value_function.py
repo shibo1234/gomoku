@@ -7,7 +7,7 @@ class TTTHeuristicValueFunction(BaseValueFunctionSingle):
     def __init__(self):
         super().__init__()
 
-    def get_V(self, state: tuple[int, ...], player: int) -> float:
+    def get_V(self, state: tuple[int, ...], player: int, action_space: set[int]) -> float:
         # p means current player
         # a means opponent player
         a1 = a2 = p1 = p2 = 0
