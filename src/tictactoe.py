@@ -2,12 +2,14 @@ import numpy as np
 import copy
 from typing import Callable, Optional
 
+
 class TicTacToe:
 
     def __init__(self, start_player: int = 1, default_state_formatter: Callable[[tuple[int, ...]], str] = str):
         self.board = np.zeros(9, dtype=int)
         self.player = start_player
         self.default_state_formatter = default_state_formatter
+        self.action_history = []
 
     @classmethod
     def from_state(cls, state: tuple[int, ...], player: int):
@@ -19,13 +21,6 @@ class TicTacToe:
         format_str = '\n+---+---+---+\n|{:^3}|{:^3}|{:^3}|' * 3 + '\n+---+---+---+\n'
         return format_str.format(*np.array([' ', 'X', 'O'])[self.board].tolist())
 
-<<<<<<< HEAD
-    def __init__(self, start_player=1, default_state_formatter: Callable[[tuple[int, ...]], str] = str):
-        self.board = np.zeros(9)
-        self.player = start_player
-        self.default_state_formatter = default_state_formatter
-        self.action_history = []
-=======
     # TODO: use __str__
     def render(self, state_formatter: Optional[Callable[[tuple[int, ...]], str]] = None):
         formatter = state_formatter or self.default_state_formatter
@@ -87,7 +82,6 @@ class TicTacToe:
 
     def clone(self):
         return copy.deepcopy(self)
->>>>>>> 1b10709 (heuristic experiment)
 
     def move(self, action):
         if self.board[action] != 0:
@@ -118,32 +112,6 @@ class TicTacToe:
             return 10 if self.get_winner() == player else -10
         return 0
 
-
-<<<<<<< HEAD
-      for i in range(3):
-        if abs(board[i].sum()) == 3:
-            return board[i][0]
-        if abs(board[:, i].sum()) == 3:
-            return board[0][i]
-
-      for j in range(3):
-        if abs(board.diagonal().sum()) == 3:
-          return board[0, 0]
-        
-        if abs(np.fliplr(board).diagonal().sum()) == 3:
-            return int(board[0, 2]) 
-      return 0
-
-    def is_terminated(self):
-        return not self.get_actions() or self.get_winner()
-    
-    def update_state(self, state, player):
-        self.board = np.array(state, dtype=int)
-        self.player = player
-    
-    def clone(self):
-        return deepcopy(self)
-
     def last_player(self):
         return -self.player
 
@@ -160,5 +128,3 @@ class TicTacToe:
         last_action = self.action_history.pop()
         self.board[last_action] = 0
         self.player = -self.player
-=======
->>>>>>> 1b10709 (heuristic experiment)
