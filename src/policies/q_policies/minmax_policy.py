@@ -1,12 +1,18 @@
 from .base_q_policy import BaseQPolicySingle
-from src.heuristics import TicTacToeHeuristic
+from src.value_functions import BaseValueFunction
+from src.value_functions import TTTHeuristicValueFunctionFast
+from typing import Optional
 from src.tictactoe import TicTacToe
 
+
 class MinMaxPolicy(BaseQPolicySingle):
-    def __init__(self, game_cls, *args, **kwargs):
+    def __init__(self,
+                 game_cls,
+                 heuristic: Optional[BaseValueFunction] = None,
+                 *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.game_cls = game_cls
-        self.heuristic = TicTacToeHeuristic()
+        self.heuristic = heuristic
 
     def min_max(self, game: TicTacToe, is_max_player, cloned_game, depth):
         if game.is_terminated():
@@ -18,7 +24,7 @@ class MinMaxPolicy(BaseQPolicySingle):
             else:
                 return -10
         if depth == 0:
-            return self.heuristic(game.get_state(), cloned_game.player)
+            return self.heuristic.get_V(game.get_state(), cloned_game.player, game.get_actions())
 
         best_score = -float('inf') if is_max_player else float('inf')
         for action in game.get_actions():
@@ -61,4 +67,3 @@ class MinMaxPolicy(BaseQPolicySingle):
 
     def update_Q(self, state: tuple[int, ...], player: int, action: int, Q: float) -> None:
         raise NotImplementedError
-

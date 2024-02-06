@@ -18,6 +18,7 @@ class TTTHeuristicValueFunction(BaseValueFunctionSingle):
         curr_state[(temp_state != player) & (temp_state != 0)] = -1
 
         lines = list(curr_state[:]) + list(curr_state.T[:]) + [np.diag(curr_state)] + [np.diag(np.fliplr(curr_state))]
+
         for line in lines:
             unique, counts = np.unique(line, return_counts=True)
             counts_dict = dict(zip(unique, counts))

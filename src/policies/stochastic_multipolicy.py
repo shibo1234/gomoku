@@ -1,8 +1,6 @@
 from .base_policy import BasePolicy
-
 import random
 from typing import Optional
-
 
 class StochasticMultiPolicy(BasePolicy):
     def __init__(self, policies: list[BasePolicy], probs: Optional[list[float]] = None, *args, **kwargs):

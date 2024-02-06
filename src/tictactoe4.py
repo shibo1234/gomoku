@@ -1,15 +1,18 @@
 import numpy as np
 import copy
 from typing import Callable, Optional
+import time
 
-
-class TicTacToe:
-
-    def __init__(self, start_player: int = 1, default_state_formatter: Callable[[tuple[int, ...]], str] = str):
-        self.board = np.zeros(9, dtype=int)
+class TicTacToe4:
+    def __init__(self,
+                 start_player: int = 1,
+                 default_state_formatter: Callable[[tuple[int, ...]], str] = str,
+                 size: int = 3):
+        self.board = np.zeros(size * size, dtype=int)
         self.player = start_player
         self.default_state_formatter = default_state_formatter
         self.action_history = []
+        self.size = size
 
     @classmethod
     def from_state(cls, state: tuple[int, ...], player: int):
@@ -18,7 +21,7 @@ class TicTacToe:
         return obj
 
     def __str__(self):
-        format_str = '\n+---+---+---+\n|{:^3}|{:^3}|{:^3}|' * 3 + '\n+---+---+---+\n'
+        format_str = '\n+---+---+---+\n|{:^size}|{:^size}|{:^size}|' * self.size + '\n+---+---+---+\n'
         return format_str.format(*np.array([' ', 'X', 'O'])[self.board].tolist())
 
     # TODO: use __str__
@@ -29,14 +32,21 @@ class TicTacToe:
     # TODO: optimize
     # iterate through all possible lines
     def __iter__(self):
-        for i in (0, 1, 2):
-            yield self.board[i], self.board[i + 3], self.board[i + 6]
-        for i in (0, 3, 6):
-            yield self.board[i], self.board[i + 1], self.board[i + 2]
+        # for i in range(self.size):
+        #     yield self.board[i * self.size: (i + 1) * self.size]
+        # for i in range(self.size):
+        #     yield self.board[i::self.size]
+        #
+        # yield self.board[::self.size + 1]
+        # yield self.board[self.size - 1: self.size ** 2 - 1: self.size - 1]
+        for i in (0, 1, 2, 3):
+            yield self.board[i], self.board[i + 4], self.board[i + 8], self.board[i + 12]
+        for i in (0, 4, 8, 10):
+            yield self.board[i], self.board[i + 1], self.board[i + 2], self.board[i + 3]
         for i in (0,):
-            yield self.board[i], self.board[i + 4], self.board[i + 8]
-        for i in (2,):
-            yield self.board[i], self.board[i + 2], self.board[i + 4]
+            yield self.board[i], self.board[i + 5], self.board[i + 10], self.board[i + 15]
+        for i in (3,):
+            yield self.board[i], self.board[i + 3], self.board[i + 6], self.board[i + 9]
 
     def update_state(self, state: tuple[int, ...], player: int):
         self.board = np.array(state, dtype=int)
@@ -49,9 +59,14 @@ class TicTacToe:
         return set(np.where(self.board == 0)[0].tolist())
 
     def get_winner(self):
-        for first, second, third in self:
-            if first == second == third != 0:
+        start_time = time.time()
+        for first, second, third, fourth in self:
+            if first == second == third == fourth != 0:
+                end_time = time.time()
+                print("花费时间：" + str(end_time - start_time) + "")
                 return first
+        end_time = time.time()
+        print("花费时间：" + str(end_time - start_time) + "")
         return 0
 
     def get_player(self):
@@ -60,23 +75,8 @@ class TicTacToe:
     def get_last_player(self):
         return -self.player
 
-    def get_winner_old(self):
-        board = self.board.reshape([3, 3])
-        for i in range(3):
-            if abs(board[i].sum()) == 3:
-                return board[i][0]
-            if abs(board[:, i].sum()) == 3:
-                return board[0][i]
-        for j in range(3):
-            if abs(board.diagonal().sum()) == 3:
-                return board[0, 0]
-            if abs(np.fliplr(board).diagonal().sum()) == 3:
-                return int(board[0, 2])
-        return 0
-
     def is_terminated(self):
         return not self.get_actions() or self.get_winner()
-
     def clone(self):
         return copy.deepcopy(self)
 

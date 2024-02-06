@@ -37,7 +37,7 @@ class TTTHeuristicValueFunctionFast(BaseValueFunctionSingle):
                     score += 3
                 elif p_count == 1:
                     score += 1
-            if p_count == 0:
+            elif p_count == 0:
                 if a_count == 2:
                     score -= 3
                 elif a_count == 1:
